@@ -6,10 +6,12 @@ export const metadata: Metadata = {
   description: "ScaleChef helps ambitious businesses scale through technology, marketing and practical AI.",
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
       { url: "/favicon.png", sizes: "64x64", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/logo.png", sizes: "1050x890", type: "image/png" },
     ],
-    shortcut: "/favicon.svg",
+    shortcut: "/favicon.ico",
     apple: "/favicon.png",
   },
   openGraph: {
