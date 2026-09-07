@@ -4,7 +4,14 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "ScaleChef — Technology × Marketing × AI",
   description: "ScaleChef helps ambitious businesses scale through technology, marketing and practical AI.",
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", sizes: "64x64", type: "image/png" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "ScaleChef — Technology × Marketing × AI",
     description: "We mix tech, marketing and AI to turn momentum into scale.",

@@ -11,7 +11,7 @@ export default function Home() {
     <main className="site-shell">
       <header className="nav-wrap">
         <a className="brand" href="#top" aria-label="ScaleChef home">
-          <span className="brand-mark" aria-hidden="true">S</span>
+          <img src="/logo.svg" alt="ScaleChef logo" width="148" height="60" className="brand-logo" />
           <span>ScaleChef</span>
         </a>
 
