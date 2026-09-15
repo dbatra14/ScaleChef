@@ -13,6 +13,28 @@
   --pale-2: #eefaf3;
   --line: rgba(29, 29, 31, 0.11);
   --line-green: rgba(25, 184, 106, 0.14);
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+  --muted-foreground: 0 0% 45.1%;
+  --border: 0 0% 89.8%;
+  --input: 0 0% 89.8%;
+  --ring: 0 0% 3.9%;
+}
+.dark {
+  --background: 0 0% 5%;
+  --foreground: 0 0% 98%;
+  --muted-foreground: 0 0% 63%;
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 0 0% 83.1%;
+}
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
 }
 
 * { box-sizing: border-box; }
@@ -124,9 +146,10 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
 .signal-tech { top: 18%; left: 4%; transform: rotate(-2.5deg); }
 .signal-marketing { top: 14%; right: 4%; transform: rotate(2.5deg); }
 .signal-ai { bottom: 17%; left: 6%; transform: rotate(1.8deg); }
-.hindi-note { position: absolute; right: 4%; bottom: 16%; background: var(--pale); padding: 14px 16px; display: flex; flex-direction: column; transform: rotate(-2.5deg); border-left: 4px solid var(--ink); max-width: 46%; }
-.hindi-note span { font-family: "Mukta", sans-serif; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.1; font-weight: 600; }
-.hindi-note small { margin-top: 4px; font-size: 8px; letter-spacing: .5px; }
+.scale-note { position: absolute; right: 4%; bottom: 16%; background: var(--ink); color: var(--white); padding: 14px 18px 12px; display: flex; flex-direction: column; gap: 2px; transform: rotate(-2.2deg); border-left: 4px solid var(--primary); max-width: 48%; box-shadow: 0 12px 28px rgba(29,29,31,0.22); }
+.scale-note span { font-family: "Inter", sans-serif; font-size: 8px; letter-spacing: 1.4px; font-weight: 700; color: var(--soft-highlight); line-height: 1; }
+.scale-note strong { font-family: "Inter", sans-serif; font-size: clamp(18px, 1.8vw, 24px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; color: var(--white); }
+.scale-note small { font-family: "Inter", sans-serif; font-size: 9px; letter-spacing: 0.3px; color: rgba(255,255,255,0.62); font-weight: 500; margin-top: 1px; }
 .visual-footer { position: absolute; left: 20px; right: 20px; bottom: 20px; display: flex; align-items: center; gap: 12px; font-family: "Inter", sans-serif; font-size: 8px; letter-spacing: 1.3px; font-weight: 700; }
 .visual-footer i { flex: 1; height: 1px; background: rgba(29,29,31,.3); min-width: 12px; }
 .bottom-strip { min-height: 48px; padding: 12px 4.2vw; display: flex; align-items: center; gap: 14px; background: var(--ink); color: var(--white); font-family: "Inter", sans-serif; font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; flex-wrap: wrap; }
@@ -265,7 +288,7 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
   .signal-tech { top: 13%; left: 2%; }
   .signal-marketing { top: 12%; right: 2%; }
   .signal-ai { bottom: 15%; left: 3%; }
-  .hindi-note { right: 3%; bottom: 14%; padding: 12px 14px; }
+  .scale-note { right: 3%; bottom: 14%; padding: 12px 14px; }
   .bottom-strip { padding: 10px 16px; font-size: 8px; gap: 10px; }
   .whatsapp-tooltip { display: none; }
 }
@@ -295,8 +318,8 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
   .signal-tech { top: 11%; left: 1%; transform: rotate(-2deg); }
   .signal-marketing { top: 11%; right: 1%; transform: rotate(2deg); }
   .signal-ai { bottom: 14%; left: 1%; transform: rotate(1deg); }
-  .hindi-note { right: 2%; bottom: 13%; padding: 10px 12px; max-width: 44%; }
-  .hindi-note span { font-size: 15px; }
+  .scale-note { right: 2%; bottom: 13%; padding: 10px 12px; max-width: 44%; }
+  .scale-note strong { font-size: 18px; }
   .visual-footer { left: 14px; right: 14px; bottom: 14px; font-size: 7px; gap: 8px; }
   .whatsapp-float { width: 54px; height: 54px; right: 14px; bottom: 14px; }
   .whatsapp-float svg { width: 24px; height: 24px; }
@@ -306,7 +329,7 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
   .hero-visual { min-height: 480px; }
   .visual-core { width: 142px; }
   .signal-card { max-width: 128px; }
-  .hindi-note { max-width: 42%; }
+  .scale-note { max-width: 42%; }
   .bottom-strip { font-size: 7.5px; }
 }
 
