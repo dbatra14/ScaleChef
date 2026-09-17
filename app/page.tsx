@@ -113,7 +113,7 @@ export default function Home() {
             <div className="portfolio-bento-body">
               <span className="portfolio-category">HEALTHCARE · WEB DEVELOPMENT</span>
               <h3 className="portfolio-title">Misaki Med Spa</h3>
-              <p className="portfolio-desc">A polished web experience for a luxury med spa — built to showcase treatments and streamline bookings.</p>
+              <p className="portfolio-desc">For Misaki Medspa, we brought the brand&apos;s focus on beauty, care, and personal attention into its online presence. The website combines treatment information, an introduction to the team, and clear consultation prompts to guide visitors from initial curiosity to making an enquiry. The approach balances an aspirational brand experience with practical navigation, helping visitors understand the offering and find their next step.</p>
               <span className="portfolio-cta">View case study <span className="portfolio-cta-arrow" aria-hidden="true">→</span></span>
             </div>
           </a>

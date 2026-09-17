@@ -21,7 +21,7 @@ const PROJECTS: Project[] = [
     name: "Misaki Med Spa",
     category: "Healthcare / Brand Website",
     categories: ["WEB", "BRAND"],
-    desc: "A refined digital presence designed to present treatments, atmosphere and services.",
+    desc: "For Misaki Medspa, we brought the brand\u2019s focus on beauty, care, and personal attention into its online presence. The website combines treatment information, an introduction to the team, and clear consultation prompts to guide visitors from initial curiosity to making an enquiry. The approach balances an aspirational brand experience with practical navigation, helping visitors understand the offering and find their next step.",
     url: "https://misaki-medspa.vercel.app/",
     image: "/portfolio-misaki.png",
     alt: "Misaki Med Spa website",
