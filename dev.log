@@ -318,3 +318,11 @@
   - app/page.tsx:97 replaced .portfolio-grid 2x2 equal 4 cards (generic AI default - 3-equal banned, 4-equal also generic) with .portfolio-bento editorial: Misaki is-large grid-row span 2 left, Drishti + Day HR stacked in .portfolio-bento-stack right (is-compact), Riverview is-wide full-width bottom with horizontal media 1.25fr + body 0.85fr - 4 cells = 4 cards, no empty cells, varied composition (large + stack + wide)
   - app/globals.css:229 added bento styles 30 lines: .portfolio-bento grid 1.45fr 0.85fr gap20, .portfolio-bento-card white 20px hover -4px scale 1.02, .is-large span2, .is-compact 16/9.2, .is-wide 16/7.2 and wide variant grid 1.25fr 0.85fr with min 260 and right border, .portfolio-bento-stack grid rows 1fr 1fr gap20, responsive 1100 1.3fr 0.9fr, 900 1fr 1fr is-large auto is-wide flex col, 768 1fr single col, shape 20px locked, accent primary locked, no purple, no em-dash, no glassmorphism, no duplicate CTA
   - verify: npm run build PASS 6.5s Routes /,/about,/contact,/portfolio; GET / 200 PASS bento large+wide present PASS bento card 4 (8 matches with hydration) PASS no old placeholder PASS HEALTHCARE present PASS no em-dash homepage+portfolio PASS Portfolio nav is-active; localhost:3000 9648; local only no push per user request
+
+[2026-09-17 20:05:00] chore: push feat/services-dropdown and open PR for portfolio page + bento (user request create merge request)
+  - git commit b24c170 feat: create dedicated /portfolio page - editorial 6-project showcase (local only) by Shudhanshu Kumar Jha <145664683+shudhanshujha@users.noreply.github.com>
+  - git commit 12943eb feat: rearrange homepage Portfolio 4-card bento - editorial rhythm (local only) by Shudhanshu Kumar Jha
+  - git push origin feat/services-dropdown ac3278d..12943eb (2 commits + dev.log)
+  - PR #4 was OPEN for 4-card portfolio (8ca12b7..ac3278d) -> will auto-update with new commits, or new PR if closed; create merge request to main
+  - no AI co-author, author is shudhanshujha
+  - verify: npm run build PASS 6.5s Routes /,/about,/contact,/portfolio; GET / 200 bento PASS GET /portfolio 200 6 projects PASS no em-dash PASS Portfolio nav is-active; localhost:3000 9648
