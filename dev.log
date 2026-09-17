@@ -276,3 +276,10 @@
   - app/globals.css:281-353 .contact-modal-* + .site-footer full-width 100% var(--ink) no radius, .footer-inner 100% 1440px 42x48x20, .footer-grid 1.5fr 1fr 1.2fr 1fr, responsive 1100/900/768/640 stack
   - public/contact-3d.png: new 1974778 bytes 1536x1024 from user 08_02_40 PM.png (distinct from services-3d.png 937330)
   - verify: npm run build PASS 8.6s Routes /,/about,/contact static, GET / 200 OK localhost:3000, hot-reload OK, no broken images, no push yet
+
+[2026-09-17 15:51:00] chore: push feat/services-dropdown and open PR #3 (user request)
+  - git commit 8d84518 feat: Let's Scale 2-col dropdown + /contact page + compact footer by Shudhanshu Kumar Jha <145664683+shudhanshujha@users.noreply.github.com>
+  - git push origin feat/services-dropdown 75447e4..8d84518
+  - gh pr create --repo dbatra14/ScaleChef --base main --head feat/services-dropdown -> https://github.com/dbatra14/ScaleChef/pull/3 OPEN
+  - no AI co-author, author is shudhanshujha
+  - verify: npm run build PASS 8.6s Routes /,/about,/contact; GET / 200 localhost:3000; dev.log updated; local dev killed (node 2912) then build ok
