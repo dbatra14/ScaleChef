@@ -301,3 +301,36 @@
   - gh pr create --repo dbatra14/ScaleChef --base main --head feat/services-dropdown -> https://github.com/dbatra14/ScaleChef/pull/4 OPEN
   - no AI co-author, author is shudhanshujha
   - verify: npm run build PASS 6.3s Routes /,/about,/contact; GET / 200 4 cards 8 matches portfolio-card-new, images 200; localhost:3000 still 9648
+
+[2026-09-17 19:10:00] feat: create dedicated /portfolio page - editorial premium 6-project showcase (anti-slop, local only, no push)
+  - Reading this as: dedicated portfolio page for B2B buyers and hiring teams, with an editorial / premium studio language, leaning toward Tailwind v4 + native CSS + restrained motion. Dials 8 / 5 / 3 (VARIANCE 8, MOTION 5, DENSITY 3) - redesign-preserve (keep Inter/Manrope, --ink/--primary, existing navbar/footer)
+  - inspected 6 live URLs: misaki (luxury med-spa), drishti (CRM shell), dayhr (attendance/leave/payroll), riverview (Riverside Texas roofing), extngo (50ft CAT6 retractable reel 50 FT ZERO TANGLES ZERO TRIP HAZARDS, 1 Gbps, 1.8 lbs), aurum (heritage luxury perfume 5 fragrances Noctis Aurum etc, amber/spice/gold, editorial)
+  - screenshots via microlink 2560x1600 saved locally: portfolio-extngo.png 1909476, portfolio-aurum.png 4031408 (plus previous 4), real previews not stock
+  - app/portfolio/page.tsx: new server page metadata title "ScaleChef — Selected Work & Portfolio" desc, hero SELECTED WORK / Digital work with something to say. / A selection of digital products... (confident minimal, pt-24 max, headline 2 lines, sub 20 words, no em-dash, no duplicate CTA), filter row ALL WEB PRODUCT CRM HR TECH BRAND text-based with active green indicator, editorial layout Row1 Misaki 1.6fr + Drishti 1fr, Row2 DayHR 1fr + Riverview 1.5fr, Row3 Extngo full-width product feature with meta 50 FT etc, Row4 Aurum full-width dark editorial 0a0a0a, each card category/name/desc/View project -> with hover scale 1.02 arrow 4px, lazy-load, alt text, no fake metrics
+  - components/portfolio-client.tsx: new client filter with useState ALL/WEB/PRODUCT/CRM/HR TECH/BRAND, filtered 2-col grid fallback, empty state, editorial rows only when ALL, scope optional, is-dark handling for Aurum
+  - components/navbar.tsx:12 isPortfolioPage pathname==="/portfolio", scroll spy skip when portfolio, Portfolio Link href="/portfolio" active when isPortfolioPage (was /#portfolio), preserves Services/Let's Scale dropdowns
+  - app/globals.css:211 scoped legacy .portfolio-grid .portfolio-card display none, added portfolio page styles 104 lines: .portfolio-hero 64x32 gradient pale->white, kicker 11px 1.8px primary, title clamp 36-64 0.94 -0.06em, sub 16px 640max, .portfolio-page-section 32-48, .portfolio-filter-row flex gap20 active 2px primary, .portfolio-editorial flex gap28, .portfolio-row grids, .portfolio-card white 20px hover -4px, media 16/10 portrait 4/3, body 20x22, kicker 10px, title 20px is-feature 24px, desc 13.5px, cta 12.5px gap, .portfolio-feature grid 1.35fr 0.9fr min 420, extngo meta primary, aurum dark #0a0a0a with light text, filtered-grid 2col, empty dashed, cta-section ink 20px with Let's scale btn primary, responsive 1100/900/768/640 stack, prefers-reduced-motion
+  - verify: npm run build PASS 6.7s Routes /,/about,/contact,/portfolio static; GET /portfolio 200 PASS SELECTED WORK/Digital work/6 projects/View project/Have a project present PASS no em-dash PASS no trusted by PASS Portfolio nav is-active PASS images 200 HEAD extngo/aurum; dev server 9648 hot-reload; local only no push per anti-slop local-first
+
+[2026-09-17 19:45:00] feat: rearrange homepage Portfolio 4-card bento - editorial rhythm (anti-slop, local only, no push)
+  - Reading this as: homepage portfolio section for B2B buyers, with a premium studio language, leaning toward Tailwind v4 + native CSS + restrained motion. Dials 8 / 5 / 4 (VARIANCE 8, MOTION 5, DENSITY 4) - redesign-preserve, only that section per user request "those exact 4 showcase but arrange them differently as you like make changes only to that section"
+  - kept exact 4 projects with same URLs/content: Misaki HEALTHCARE, Drishti CRM, Day HR, Riverview LOCAL (no fake stats, same descs, same screenshots /portfolio-*.png, no new copy, no stock)
+  - app/page.tsx:97 replaced .portfolio-grid 2x2 equal 4 cards (generic AI default - 3-equal banned, 4-equal also generic) with .portfolio-bento editorial: Misaki is-large grid-row span 2 left, Drishti + Day HR stacked in .portfolio-bento-stack right (is-compact), Riverview is-wide full-width bottom with horizontal media 1.25fr + body 0.85fr - 4 cells = 4 cards, no empty cells, varied composition (large + stack + wide)
+  - app/globals.css:229 added bento styles 30 lines: .portfolio-bento grid 1.45fr 0.85fr gap20, .portfolio-bento-card white 20px hover -4px scale 1.02, .is-large span2, .is-compact 16/9.2, .is-wide 16/7.2 and wide variant grid 1.25fr 0.85fr with min 260 and right border, .portfolio-bento-stack grid rows 1fr 1fr gap20, responsive 1100 1.3fr 0.9fr, 900 1fr 1fr is-large auto is-wide flex col, 768 1fr single col, shape 20px locked, accent primary locked, no purple, no em-dash, no glassmorphism, no duplicate CTA
+  - verify: npm run build PASS 6.5s Routes /,/about,/contact,/portfolio; GET / 200 PASS bento large+wide present PASS bento card 4 (8 matches with hydration) PASS no old placeholder PASS HEALTHCARE present PASS no em-dash homepage+portfolio PASS Portfolio nav is-active; localhost:3000 9648; local only no push per user request
+
+[2026-09-17 20:05:00] chore: push feat/services-dropdown and open PR for portfolio page + bento (user request create merge request)
+  - git commit b24c170 feat: create dedicated /portfolio page - editorial 6-project showcase (local only) by Shudhanshu Kumar Jha <145664683+shudhanshujha@users.noreply.github.com>
+  - git commit 12943eb feat: rearrange homepage Portfolio 4-card bento - editorial rhythm (local only) by Shudhanshu Kumar Jha
+  - git push origin feat/services-dropdown ac3278d..12943eb (2 commits + dev.log)
+  - PR #4 was OPEN for 4-card portfolio (8ca12b7..ac3278d) -> will auto-update with new commits, or new PR if closed; create merge request to main
+  - no AI co-author, author is shudhanshujha
+  - verify: npm run build PASS 6.5s Routes /,/about,/contact,/portfolio; GET / 200 bento PASS GET /portfolio 200 6 projects PASS no em-dash PASS Portfolio nav is-active; localhost:3000 9648
+
+[2026-09-17 20:12:00] chore: push feat/services-dropdown and open PR #5 (merge request per user)
+  - git commit 783c57a chore: update dev.log for portfolio page + bento push by Shudhanshu Kumar Jha
+  - git push origin feat/services-dropdown ac3278d..783c57a (b24c170 + 12943eb + 783c57a)
+  - PR #4 was MERGED 78298a3 (main at 78298a3) -> required new PR
+  - gh pr create --repo dbatra14/ScaleChef --base main --head feat/services-dropdown -> https://github.com/dbatra14/ScaleChef/pull/5 OPEN
+  - title feat: dedicated /portfolio page + homepage bento editorial, body with 6-project + bento details, no AI co-author
+  - verify: npm run build PASS 6.5s Routes /,/about,/contact,/portfolio; GET /portfolio 200 6 projects PASS no em-dash; GET / 200 bento PASS; head at 783c57a

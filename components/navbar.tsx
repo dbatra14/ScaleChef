@@ -12,6 +12,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const isAboutPage = pathname === "/about";
   const isContactPage = pathname === "/contact";
+  const isPortfolioPage = pathname === "/portfolio";
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeId, setActiveId] = useState("home");
@@ -25,7 +26,7 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 10);
-      if (!isAboutPage && !isContactPage) {
+      if (!isAboutPage && !isContactPage && !isPortfolioPage) {
         const ids = ["home", "services", "portfolio"];
         let current = "home";
         for (const id of ids) {
@@ -38,7 +39,7 @@ export default function Navbar() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isAboutPage, isContactPage]);
+  }, [isAboutPage, isContactPage, isPortfolioPage]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -214,7 +215,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="/#portfolio" onClick={() => setMenuOpen(false)} className={activeId === "portfolio" && !isAboutPage && !isContactPage ? "is-active" : ""}>
+          <Link href="/portfolio" onClick={() => setMenuOpen(false)} className={isPortfolioPage || (activeId === "portfolio" && !isAboutPage && !isContactPage && !isPortfolioPage) ? "is-active" : ""}>
             Portfolio
           </Link>
           <Link href="/about" onClick={() => setMenuOpen(false)} className={isAboutPage ? "is-active" : ""}>
