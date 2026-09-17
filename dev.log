@@ -326,3 +326,11 @@
   - PR #4 was OPEN for 4-card portfolio (8ca12b7..ac3278d) -> will auto-update with new commits, or new PR if closed; create merge request to main
   - no AI co-author, author is shudhanshujha
   - verify: npm run build PASS 6.5s Routes /,/about,/contact,/portfolio; GET / 200 bento PASS GET /portfolio 200 6 projects PASS no em-dash PASS Portfolio nav is-active; localhost:3000 9648
+
+[2026-09-17 20:12:00] chore: push feat/services-dropdown and open PR #5 (merge request per user)
+  - git commit 783c57a chore: update dev.log for portfolio page + bento push by Shudhanshu Kumar Jha
+  - git push origin feat/services-dropdown ac3278d..783c57a (b24c170 + 12943eb + 783c57a)
+  - PR #4 was MERGED 78298a3 (main at 78298a3) -> required new PR
+  - gh pr create --repo dbatra14/ScaleChef --base main --head feat/services-dropdown -> https://github.com/dbatra14/ScaleChef/pull/5 OPEN
+  - title feat: dedicated /portfolio page + homepage bento editorial, body with 6-project + bento details, no AI co-author
+  - verify: npm run build PASS 6.5s Routes /,/about,/contact,/portfolio; GET /portfolio 200 6 projects PASS no em-dash; GET / 200 bento PASS; head at 783c57a
