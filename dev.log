@@ -341,3 +341,9 @@
   - components/portfolio-client.tsx:20 desc replaced "A refined digital presence..." with 3-sentence case study (curly \u2019 preserved, no em-dash, 63 words, no fake metrics), used in portfolio page editorial + filtered grid
   - app/page.tsx:116 p.portfolio-desc replaced "A polished web experience..." (\u2014 em-dash banned) with same 3-sentence case study using &apos; for JSX, in homepage bento is-large card
   - verify: npm run build PASS 13.0s Routes /,/about,/contact,/portfolio; curl GET / 200 PASS For Misaki Medspa PASS beauty PASS no em-dash; GET /portfolio 200 PASS aspirational; localhost:3000 9648 hot-reload; local then push per "continue do it fast and send the pr"
+  - git commit 7ed33ce feat: update Misaki Medspa case study copy by Shudhanshu Kumar Jha, git push 037ecf4..7ed33ce, PR #5 was MERGED 8fb3e4f at 2026-09-17T14:26:28Z -> main at 8fb3e4f, feat ahead by 1
+
+[2026-09-17 20:28:00] chore: push feat/services-dropdown and open PR #6 (merge request per user)
+  - gh pr create --repo dbatra14/ScaleChef --base main --head feat/services-dropdown -> https://github.com/dbatra14/ScaleChef/pull/6 OPEN
+  - title feat: update Misaki Medspa case study copy, body with 3-sentence copy + file paths, no AI co-author
+  - verify: PR #6 OPEN head 7ed33ce, npm run build PASS 13.0s Routes /,/about,/contact,/portfolio; GET / 200 PASS For Misaki Medspa; GET /portfolio 200 PASS aspirational; head at 7ed33ce
