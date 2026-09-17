@@ -101,6 +101,49 @@ img { display: block; max-width: 100%; }
 /* Dropdown must not create any page overlay - hero stays 100% sharp */
 /* Discord-like soft background blur behind Services dropdown - hero stays visible but slightly frosted */
 .nav-overlay.is-dropdown-open { display: block !important; opacity: 1 !important; pointer-events: none !important; backdrop-filter: blur(6px) !important; -webkit-backdrop-filter: blur(6px) !important; background: rgba(255,255,255,0.08) !important; }
+
+/* Let's Scale CTA - EXACT 2-col sketch spec - same blur as Services panel */
+.nav-cta-wrap { position: relative; display: flex; align-items: center; }
+.has-cta-dropdown::after { content: ""; position: absolute; left: -12px; right: -12px; top: 100%; height: 18px; }
+.nav-cta.nav-cta-trigger { width: 182px; height: 60px; padding: 0 20px; justify-content: space-between; gap: 12px; }
+/* Keep same soft blur as Services panel */
+.nav-overlay.is-scale-open { display: block !important; opacity: 1 !important; pointer-events: none !important; backdrop-filter: blur(6px) !important; -webkit-backdrop-filter: blur(6px) !important; background: rgba(255,255,255,0.08) !important; }
+/* Dropdown - compact floating 600-700 x 260-320, wider than tall, same glass as Services */
+.dropdown-cta { left: auto; right: 0; transform: translateY(-8px) scale(0.98); width: 640px; max-width: min(640px, calc(100vw - 24px)); height: 280px; padding: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 12px 32px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06); overflow: visible; border-radius: 20px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 340ms cubic-bezier(0.16,1,0.3,1), transform 360ms cubic-bezier(0.16,1,0.3,1), visibility 340ms; }
+.has-cta-dropdown:hover .dropdown-cta, .has-cta-dropdown.is-open .dropdown-cta, .has-cta-dropdown:focus-within .dropdown-cta { opacity: 1; visibility: visible; pointer-events: all; transform: translateY(0) scale(1); }
+.has-cta-dropdown:not(:hover):not(.is-open):not(:focus-within) .dropdown-cta { transition: opacity 220ms cubic-bezier(0.16,1,0.3,1), transform 240ms cubic-bezier(0.16,1,0.3,1), visibility 220ms; }
+.dropdown-cta::before { left: auto; right: 28px; background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-left: 1px solid rgba(255,255,255,0.8); border-top: 1px solid rgba(255,255,255,0.8); }
+/* TWO equal vertical sections - 1fr 1fr */
+.scale-two-col { display: grid; grid-template-columns: 1fr 1fr; height: 100%; position: relative; width: 100%; }
+.scale-divider { position: absolute; left: 50%; top: 14%; bottom: 14%; width: 1px; background: rgba(29,29,31,0.08); transform: translateX(-50%); pointer-events: none; }
+.scale-col { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 28px 20px; position: relative; text-decoration: none; border: 0; background: transparent; cursor: pointer; width: 100%; height: 100%; transition: background 0.15s ease; }
+.scale-col:hover { background: var(--pale-2); }
+.scale-col-wa:hover { border-radius: 20px 0 0 20px; }
+.scale-col-contact:hover { border-radius: 0 20px 20px 0; }
+.scale-col:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+.scale-col-inner { display: flex; flex-direction: column; align-items: center; gap: 8px; max-width: 240px; }
+.scale-col-inner strong { font-family: "Inter", sans-serif; font-size: 15px; font-weight: 700; color: #0f172a; display: flex; align-items: center; gap: 6px; line-height: 1.2; justify-content: center; }
+.scale-col:hover .scale-col-inner strong { color: var(--primary-hover); }
+.scale-col-inner strong span { font-size: 11px; opacity: 0.35; flex-shrink: 0; }
+.scale-col-inner small { font-family: "Manrope", sans-serif; font-size: 11.5px; color: #64748b; line-height: 1.4; text-align: center; }
+/* SINGLE 3D image - absolutely positioned at bottom-right of CONTACT US half, does NOT affect grid */
+.scale-image-wrap { position: absolute; right: -30px; bottom: -45px; width: 170px; height: 170px; pointer-events: none; z-index: 3; display: flex; align-items: center; justify-content: center; overflow: visible; }
+.scale-image { width: 170px; height: 170px; object-fit: contain; display: block; filter: drop-shadow(0 16px 32px rgba(0,0,0,0.18)); transform: translateY(20px) scale(0.85); opacity: 0; transition: opacity 340ms cubic-bezier(0.16,1,0.3,1) 40ms, transform 380ms cubic-bezier(0.16,1,0.3,1) 40ms; will-change: transform, opacity; }
+.has-cta-dropdown:hover .scale-image, .has-cta-dropdown.is-open .scale-image, .has-cta-dropdown:focus-within .scale-image { opacity: 1; transform: translateY(0) scale(1); animation: scale-float 3.6s ease-in-out 520ms infinite; }
+@keyframes scale-float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-4px) scale(1); } }
+.has-cta-dropdown:not(:hover):not(.is-open):not(:focus-within) .scale-image { transition: opacity 200ms cubic-bezier(0.16,1,0.3,1), transform 220ms cubic-bezier(0.16,1,0.3,1); transform: translateY(20px) scale(0.85); opacity: 0; animation: none; }
+/* Mobile Let's Scale inside drawer - hidden on desktop */
+.mobile-cta-item { display: none; }
+.mobile-scale-options { display: none; flex-direction: column; gap: 0; margin: 2px 0 8px 14px; border-left: 2px solid var(--pale); padding-left: 12px; }
+.mobile-scale-options.is-open { display: flex; }
+.mobile-scale-link { display: flex; flex-direction: column; gap: 1px; padding: 10px 8px; border-radius: 8px; text-align: left; background: transparent; border: 0; cursor: pointer; font-family: "Inter", sans-serif; }
+.mobile-scale-link strong { font-size: 14px; font-weight: 700; color: #0f172a; display: flex; gap: 6px; align-items: center; }
+.mobile-scale-link strong span { font-size: 11px; opacity: 0.35; }
+.mobile-scale-link small { font-family: "Manrope", sans-serif; font-size: 11px; color: #64748b; }
+.mobile-scale-link:hover { background: var(--pale-2); }
+.mobile-scale-link:hover strong { color: var(--primary-hover); }
+.mobile-scale-email { padding: 8px; font-size: 11px; color: #94a3b8; }
+.mobile-scale-email a { color: var(--primary); font-weight: 700; text-decoration: underline; }
 .nav-cta, .primary-button { display: inline-flex; align-items: center; justify-content: center; gap: 28px; background: var(--ink); color: var(--white); padding: 14px 20px; transition: transform .2s ease, background .2s ease; white-space: nowrap; border-radius: 0; font-family: "Inter", sans-serif; font-size: 13px; font-weight: 700; }
 .nav-cta:hover, .primary-button:hover { background: #353538; transform: translateY(-2px); }
 .nav-cta:focus-visible, .primary-button:focus-visible, .text-link:focus-visible, .menu-button:focus-visible, .whatsapp-float:focus-visible, .nav-item > a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
@@ -152,8 +195,7 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
 .scale-note small { font-family: "Inter", sans-serif; font-size: 9px; letter-spacing: 0.3px; color: rgba(255,255,255,0.62); font-weight: 500; margin-top: 1px; }
 .visual-footer { position: absolute; left: 20px; right: 20px; bottom: 20px; display: flex; align-items: center; gap: 12px; font-family: "Inter", sans-serif; font-size: 8px; letter-spacing: 1.3px; font-weight: 700; }
 .visual-footer i { flex: 1; height: 1px; background: rgba(29,29,31,.3); min-width: 12px; }
-.bottom-strip { min-height: 48px; padding: 12px 4.2vw; display: flex; align-items: center; gap: 14px; background: var(--ink); color: var(--white); font-family: "Inter", sans-serif; font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; flex-wrap: wrap; }
-.bottom-strip i { color: var(--primary); font-style: normal; font-size: 14px; }
+
 
 /* Sections - green theme */
 .section { padding: 64px 4.2vw; border-top: 1px solid var(--line); }
@@ -236,6 +278,80 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
   100% { box-shadow: 0 8px 24px rgba(0,0,0,.18), 0 0 0 0 rgba(37,211,102,0); }
 }
 
+/* Contact Modal */
+.contact-modal-overlay { position: fixed; inset: 0; z-index: 60; background: rgba(15,23,42,0.52); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: grid; place-items: center; padding: 16px; animation: modalIn 0.22s cubic-bezier(0.16,1,0.3,1); }
+@keyframes modalIn { from { opacity: 0; } to { opacity: 1; } }
+.contact-modal { width: 100%; max-width: 560px; max-height: min(92dvh, 760px); overflow-y: auto; background: var(--white); border-radius: 20px; padding: 28px 24px 24px; position: relative; box-shadow: 0 20px 48px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08); animation: modalCardIn 0.28s cubic-bezier(0.16,1,0.3,1); }
+@keyframes modalCardIn { from { opacity: 0; transform: translateY(14px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.contact-modal-close { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: var(--white); display: grid; place-items: center; font-size: 18px; line-height: 1; cursor: pointer; color: #64748b; transition: background 0.15s, color 0.15s; }
+.contact-modal-close:hover { background: var(--pale-2); color: var(--ink); }
+.contact-modal-head { margin-bottom: 18px; padding-right: 24px; }
+.contact-modal-kicker { font-family: "Inter", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--primary); margin: 0 0 8px; }
+.contact-modal-head h3 { font-family: "Inter", sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.04em; color: var(--ink); margin: 0 0 8px; line-height: 1.1; }
+.contact-modal-head p { font-size: 13px; color: #6b6b72; margin: 0; line-height: 1.5; }
+.contact-modal-form { display: flex; flex-direction: column; gap: 14px; }
+.contact-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.contact-modal-form label { display: flex; flex-direction: column; gap: 6px; font-family: "Inter", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #475569; }
+.contact-modal-form label span { font-size: 11px; }
+.contact-modal-form input, .contact-modal-form select, .contact-modal-form textarea { font-family: "Manrope", sans-serif; font-size: 13px; font-weight: 500; text-transform: none; letter-spacing: normal; padding: 11px 12px; border-radius: 10px; border: 1px solid rgba(29,29,31,0.14); background: var(--white); color: var(--ink); outline: none; transition: border-color 0.15s, box-shadow 0.15s; width: 100%; }
+.contact-modal-form input:focus, .contact-modal-form select:focus, .contact-modal-form textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(25,184,106,0.14); }
+.contact-modal-form textarea { resize: vertical; min-height: 88px; }
+.contact-modal-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 4px; }
+.contact-submit { flex: 1; min-width: 160px; background: var(--primary); color: var(--white); border: 0; padding: 13px 18px; font-family: "Inter", sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.15s, transform 0.15s; }
+.contact-submit:hover { background: var(--primary-hover); transform: translateY(-1px); }
+.contact-wa-link { font-family: "Inter", sans-serif; font-size: 12px; font-weight: 700; color: var(--ink); border-bottom: 1px solid var(--ink); padding: 6px 0; }
+.contact-wa-link:hover { color: var(--primary); border-color: var(--primary); }
+.contact-modal-footnote { font-family: "Manrope", sans-serif; font-size: 11px; color: #94a3b8; margin: 2px 0 0; text-transform: none; letter-spacing: normal; font-weight: 400; }
+.contact-success { text-align: center; padding: 32px 16px 20px; }
+.contact-success-icon { width: 48px; height: 48px; border-radius: 50%; background: var(--primary); color: var(--white); display: grid; place-items: center; font-size: 22px; font-weight: 800; margin: 0 auto 14px; }
+.contact-success h3 { font-family: "Inter", sans-serif; font-size: 20px; font-weight: 800; color: var(--ink); margin: 0 0 6px; }
+.contact-success p { font-size: 13px; color: #6b6b72; margin: 0; }
+@media (max-width: 640px) {
+  .contact-modal { padding: 22px 16px 18px; border-radius: 16px; }
+  .contact-grid-2 { grid-template-columns: 1fr; }
+}
+
+/* Footer - compact dark contained, rounded top, 4-col premium */
+.site-footer { background: var(--ink); width: 100%; margin: 0; border-radius: 0; border-top-left-radius: 0; border-top-right-radius: 0; box-shadow: none; border: none; }
+.footer-inner { width: 100%; max-width: 1440px; margin: 0 auto; background: transparent; border-radius: 0; padding: 42px 48px 20px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr 1fr; gap: 28px 24px; align-items: start; }
+.footer-brand-name { font-family: "Inter", sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -0.7px; color: var(--white); text-decoration: none; display: inline-block; line-height: 1; }
+.footer-brand-name:hover { color: var(--white); opacity: 0.9; }
+.footer-brand-desc { margin: 10px 0 0; font-family: "Manrope", sans-serif; font-size: 12.5px; line-height: 1.6; color: rgba(255,255,255,0.60); max-width: 280px; }
+.footer-heading { font-family: "Inter", sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(255,255,255,0.38); margin: 0 0 14px; line-height: 1; }
+.footer-links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 13px; }
+.footer-links a { font-family: "Manrope", sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.80); text-decoration: none; transition: color 0.15s ease; line-height: 1.3; }
+.footer-links a:hover { color: var(--white); }
+.footer-contact-meta { font-family: "Manrope", sans-serif; font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.3; }
+.footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 30px 0 18px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: "Inter", sans-serif; font-size: 10px; color: rgba(255,255,255,0.40); line-height: 1.4; }
+.footer-bottom span { white-space: nowrap; }
+
+@media (max-width: 1100px) {
+  .footer-inner { padding: 38px 36px 16px; }
+  .footer-grid { gap: 24px 20px; }
+}
+@media (max-width: 900px) {
+  .site-footer { border-radius: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+  .footer-inner { padding: 36px 24px 16px; }
+  .footer-grid { grid-template-columns: 1.5fr 1fr 1.2fr 1fr; gap: 24px 16px; }
+}
+@media (max-width: 768px) {
+  .footer-inner { padding: 32px 20px 16px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px 20px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+@media (max-width: 640px) {
+  .site-footer { border-radius: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+  .footer-inner { padding: 28px 16px 14px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+  .footer-brand-desc br { display: none; }
+  .footer-divider { margin: 18px 0 12px; }
+  .footer-bottom { font-size: 10px; }
+  .footer-bottom span { white-space: normal; }
+}
+
 /* ---------- Tablet ---------- */
 @media (max-width: 1100px) {
   .hero { grid-template-columns: 50% 50%; }
@@ -270,7 +386,9 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
   .mobile-services { display: flex; flex-direction: column; gap: 0; margin: 2px 0 8px 14px; border-left: 2px solid var(--pale); padding-left: 12px; }
   .mobile-services a { font-size: 14px; font-weight: 500; color: #475569; padding: 10px 8px; border-radius: 8px; }
   .mobile-services a:hover { color: var(--primary-hover); background: var(--pale-2); }
-  .nav-right .nav-cta { display: none; }
+  .nav-right .nav-cta, .nav-right .nav-cta-wrap { display: none; }
+  .mobile-cta-item { display: flex !important; flex-direction: column; align-items: stretch; }
+  .mobile-cta-item > a { padding: 14px 8px; font-size: 15px; border-radius: 10px; }
   .section { padding: 36px 16px; }
   .service-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr; }
@@ -289,7 +407,6 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
   .signal-marketing { top: 12%; right: 2%; }
   .signal-ai { bottom: 15%; left: 3%; }
   .scale-note { right: 3%; bottom: 14%; padding: 12px 14px; }
-  .bottom-strip { padding: 10px 16px; font-size: 8px; gap: 10px; }
   .whatsapp-tooltip { display: none; }
 }
 
@@ -330,7 +447,6 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
   .visual-core { width: 142px; }
   .signal-card { max-width: 128px; }
   .scale-note { max-width: 42%; }
-  .bottom-strip { font-size: 7.5px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
