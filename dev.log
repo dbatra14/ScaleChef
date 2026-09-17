@@ -293,3 +293,11 @@
   - app/globals.css:211 replaced .portfolio-grid 3col 16px + .portfolio-card black -> 2col 24px gap + .portfolio-card-new flex col white 20px radius border rgba(0,0,0,0.10) shadow, hover lift -4px shadow 12px, image-wrap 16/9 overflow hidden, image cover scale 1.02 on hover, content 20x22 category 10px uppercase 1.4px primary, title 18px 800, desc 13px #6b6b72, cta 12.5px 700 ink bottom border arrow -> 4px, legacy .portfolio-card display none
   - app/globals.css:370 1100 gap 20, 379 900 keep 2col 1fr 1fr gap16 (was 1fr), 360 768 add portfolio 1fr gap16 + content padding, 428 640 add portfolio 1fr gap16 + smaller fonts 16/12.5, no other sections touched (Navbar/Hero/Services/dropdowns/About/Contact/Footer/typography/colors/animations untouched per spec)
   - verify: npm run build PASS 6.3s Compiled successfully Routes /,/about,/contact static; GET / 200 PASS Misaki/Drishti/Day/Riverview present PASS SaaS/D2C/Fintech removed PASS HEALTHCARE/CRM/HR/LOCAL categories present PASS 4 external URLs correct PASS images 200 HEAD /portfolio-*.png 4x 200; dev server PID 9648 localhost:3000 hot-reload; local only no push per user request
+
+[2026-09-17 18:35:00] chore: push feat/services-dropdown and open PR #4 (user request yes do it)
+  - git commit 8ca12b7 feat: replace Portfolio placeholder with 4 real project cards (local only) by Shudhanshu Kumar Jha <145664683+shudhanshujha@users.noreply.github.com>
+  - git push origin feat/services-dropdown fa524c5..8ca12b7
+  - PR #3 was MERGED 3584ed0 (main now at 3584ed0) -> new PR needed
+  - gh pr create --repo dbatra14/ScaleChef --base main --head feat/services-dropdown -> https://github.com/dbatra14/ScaleChef/pull/4 OPEN
+  - no AI co-author, author is shudhanshujha
+  - verify: npm run build PASS 6.3s Routes /,/about,/contact; GET / 200 4 cards 8 matches portfolio-card-new, images 200; localhost:3000 still 9648
