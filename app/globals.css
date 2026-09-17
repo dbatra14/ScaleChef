@@ -227,6 +227,25 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
 /* legacy homepage placeholder - hidden only inside homepage grid, not portfolio page */
 .portfolio-grid .portfolio-card { display: none; }
 
+/* ========== HOMEPAGE BENTO - anti-slop, editorial rhythm, 4 cells = 4 cards ========== */
+.portfolio-bento { display: grid; grid-template-columns: 1.45fr 0.85fr; gap: 20px; align-items: stretch; }
+.portfolio-bento-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid rgba(29,29,31,0.10); border-radius: 20px; overflow: hidden; text-decoration: none; transition: transform 300ms cubic-bezier(0.16,1,0.3,1), box-shadow 300ms cubic-bezier(0.16,1,0.3,1), border-color 300ms ease; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.portfolio-bento-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06); border-color: rgba(25,184,106,0.22); }
+.portfolio-bento-card:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.portfolio-bento-card.is-large { grid-row: span 2; }
+.portfolio-bento-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--soft); border-bottom: 1px solid rgba(29,29,31,0.06); }
+.portfolio-bento-media.is-compact { aspect-ratio: 16 / 9.2; }
+.portfolio-bento-media.is-wide { aspect-ratio: 16 / 7.2; }
+.portfolio-bento-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 400ms cubic-bezier(0.16,1,0.3,1); }
+.portfolio-bento-card:hover .portfolio-bento-img { transform: scale(1.02); }
+.portfolio-bento-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+.portfolio-bento-body.is-compact { padding: 16px 18px 18px; }
+.portfolio-bento-body.is-wide { padding: 22px 24px; }
+.portfolio-bento-stack { display: grid; grid-template-rows: 1fr 1fr; gap: 20px; }
+.portfolio-bento-card.is-wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1.25fr 0.85fr; align-items: stretch; }
+.portfolio-bento-card.is-wide .portfolio-bento-media.is-wide { aspect-ratio: auto; height: 100%; min-height: 260px; border-bottom: none; border-right: 1px solid rgba(29,29,31,0.06); }
+.portfolio-bento-card.is-wide .portfolio-bento-body.is-wide { justify-content: center; }
+
 /* ========== PORTFOLIO PAGE - editorial premium ========== */
 .portfolio-hero { padding: 64px 4.2vw 32px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, var(--pale) 0%, var(--white) 100%); }
 .portfolio-hero-inner { max-width: 1280px; margin: 0 auto; }
@@ -538,12 +557,13 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
   .scale-note { max-width: 42%; }
 }
 
-/* Portfolio page responsive */
+/* Portfolio page responsive + homepage bento */
 @media (max-width: 1100px) {
   .portfolio-hero { padding: 48px 4.2vw 28px; }
   .portfolio-hero-title { font-size: clamp(32px, 5vw, 52px); }
   .portfolio-page-section { padding: 28px 4.2vw 40px; }
   .portfolio-feature { grid-template-columns: 1.2fr 0.9fr; min-height: 380px; }
+  .portfolio-bento { grid-template-columns: 1.3fr 0.9fr; gap: 16px; }
 }
 @media (max-width: 900px) {
   .portfolio-filter-row { gap: 14px; }
@@ -553,6 +573,11 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
   .portfolio-feature-body { padding: 24px 22px; }
   .portfolio-filtered-grid { grid-template-columns: 1fr 1fr; }
   .portfolio-cta-inner { flex-direction: column; align-items: flex-start; padding: 24px; }
+  .portfolio-bento { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .portfolio-bento-card.is-large { grid-row: auto; }
+  .portfolio-bento-card.is-wide { grid-column: auto; display: flex; flex-direction: column; }
+  .portfolio-bento-card.is-wide .portfolio-bento-media.is-wide { aspect-ratio: 16 / 9; min-height: auto; border-right: none; border-bottom: 1px solid rgba(29,29,31,0.06); }
+  .portfolio-bento-stack { grid-template-rows: auto; gap: 16px; }
 }
 @media (max-width: 768px) {
   .portfolio-hero { padding: 36px 4.2vw 24px; }
@@ -563,6 +588,9 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; fo
   .portfolio-card-title { font-size: 18px; }
   .portfolio-card-title.is-feature { font-size: 20px; }
   .portfolio-filtered-grid { grid-template-columns: 1fr; }
+  .portfolio-bento { grid-template-columns: 1fr; gap: 16px; }
+  .portfolio-bento-body { padding: 16px 16px 18px; }
+  .portfolio-bento-body.is-compact { padding: 16px; }
 }
 @media (max-width: 640px) {
   .portfolio-hero { padding: 28px 16px 20px; }
