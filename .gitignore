@@ -34,6 +34,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local dev logs - DO NOT PUSH (local memory only)
+dev.log
+dev2.log
+
 /dist/
 /.wrangler/
 /outputs/
