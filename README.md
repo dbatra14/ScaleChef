@@ -1,6 +1,6 @@
-# ScaleChef Homepage
+# ScaleChefs Homepage
 
-The responsive ScaleChef homepage prototype, built with React, TypeScript, CSS, Vinext and Vite.
+The responsive ScaleChefs homepage prototype, built with React, TypeScript, CSS, Vinext and Vite.
 
 ## Run locally
 
@@ -39,7 +39,7 @@ Alternatively, from the extracted project folder:
 ```bash
 git init
 git add .
-git commit -m "Add ScaleChef homepage"
+git commit -m "Add ScaleChefs homepage"
 git branch -M main
 git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
 git push -u origin main
@@ -52,7 +52,7 @@ Replace the final URL with your own GitHub repository URL.
 - Near black: `#1D1D1F`
 - White: `#FFFFFF`
 - Light grey: `#F5F5F7`
-- ScaleChef orange: `#FF6B35`
+- ScaleChefs orange: `#FF6B35`
 
 ## Fonts
 

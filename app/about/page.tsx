@@ -3,8 +3,8 @@ import Navbar from "@/components/navbar";
 import Link from "next/link";
 
 export const metadata = {
-  title: "About Us — ScaleChef",
-  description: "Meet the ScaleChef team — technology, marketing and AI, built to scale ambitious businesses.",
+  title: "About Us — ScaleChefs",
+  description: "Meet the ScaleChefs team — technology, marketing and AI, built to scale ambitious businesses.",
 };
 
 export default function AboutPage() {
@@ -23,7 +23,7 @@ export default function AboutPage() {
             We operate like your on-demand growth kitchen — lean, fast, and obsessed with outcomes. Six people around one table, no account managers, no 40-slide decks, just whatever it takes to ship.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="mailto:hello@scalechef.com" className="bg-[#19B86A] px-6 py-3 text-[13px] font-bold text-white hover:bg-[#109556]" style={{ fontFamily: "Inter, sans-serif" }}>Join our journey ↗</a>
+            <a href="mailto:hello@scalechefs.com" className="bg-[#19B86A] px-6 py-3 text-[13px] font-bold text-white hover:bg-[#109556]" style={{ fontFamily: "Inter, sans-serif" }}>Join our journey ↗</a>
             <Link href="/#contact" className="border border-zinc-900 px-6 py-3 text-[13px] font-bold hover:bg-zinc-900 hover:text-white" style={{ fontFamily: "Inter, sans-serif" }}>Contact Us</Link>
           </div>
         </div>
@@ -175,7 +175,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-8 max-w-2xl">
             <h2 className="text-[24px] font-bold tracking-tight text-white md:text-[28px]" style={{ fontFamily: "Inter, sans-serif" }}>Meet the crew</h2>
-            <p className="mt-2 text-[14px] leading-6 text-zinc-400">The people behind ScaleChef — technology, marketing and AI, built to scale ambitious businesses.</p>
+            <p className="mt-2 text-[14px] leading-6 text-zinc-400">The people behind ScaleChefs — technology, marketing and AI, built to scale ambitious businesses.</p>
           </div>
           <div className="rounded-[20px] border border-white/10 bg-[#0a0a0a] p-2 md:p-6">
             <TeamShowcase />
@@ -191,7 +191,7 @@ export default function AboutPage() {
             <p className="mt-2 max-w-[520px] text-[13px] leading-5 text-white/60">You bring the appetite, we bring the kitchen. No pitch deck required.</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <a href="mailto:hello@scalechef.com" className="bg-[#19B86A] px-6 py-3 text-[13px] font-bold text-white hover:bg-[#109556]" style={{ fontFamily: "Inter, sans-serif" }}>Join our journey ↗</a>
+            <a href="mailto:hello@scalechefs.com" className="bg-[#19B86A] px-6 py-3 text-[13px] font-bold text-white hover:bg-[#109556]" style={{ fontFamily: "Inter, sans-serif" }}>Join our journey ↗</a>
             <Link href="/#contact" className="bg-white px-6 py-3 text-[13px] font-bold text-[#1D1D1F] hover:bg-[#DCF8E8]" style={{ fontFamily: "Inter, sans-serif" }}>Contact Us</Link>
           </div>
         </div>

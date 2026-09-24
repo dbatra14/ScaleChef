@@ -3,8 +3,8 @@ import PortfolioClient from "@/components/portfolio-client";
 import Link from "next/link";
 
 export const metadata = {
-  title: "ScaleChef — Selected Work & Portfolio",
-  description: "Selected digital products, brand experiences and business systems designed and developed by ScaleChef.",
+  title: "ScaleChefs — Selected Work & Portfolio",
+  description: "Selected digital products, brand experiences and business systems designed and developed by ScaleChefs.",
 };
 
 export default function PortfolioPage() {
@@ -22,7 +22,7 @@ export default function PortfolioPage() {
             something to say.
           </h1>
           <p className="portfolio-hero-sub">
-            A selection of digital products, brand experiences and business systems designed and developed by ScaleChef.
+            A selection of digital products, brand experiences and business systems designed and developed by ScaleChefs.
           </p>
         </div>
       </section>

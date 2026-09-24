@@ -7,8 +7,8 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand */}
           <div className="footer-brand">
-            <Link href="/" className="footer-brand-name" aria-label="ScaleChef home">
-              ScaleChef
+            <Link href="/" className="footer-brand-name" aria-label="ScaleChefs home">
+              ScaleChefs
             </Link>
             <p className="footer-brand-desc">
               Technology, marketing and AI—combined<br />
@@ -45,10 +45,10 @@ export default function Footer() {
           <div className="footer-col">
             <h4 className="footer-heading">CONTACT</h4>
             <ul className="footer-links">
-              <li><a href="mailto:hello@scalechef.com">hello@scalechef.com</a></li>
+              <li><a href="mailto:hello@scalechefs.com">hello@scalechefs.com</a></li>
               <li>
                 <a
-                  href="https://wa.me/9188607822800?text=Hello%20ScaleChef%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details."
+                  href="https://wa.me/9188607822800?text=Hello%20ScaleChefs%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details."
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -65,7 +65,7 @@ export default function Footer() {
         <div className="footer-divider" aria-hidden="true" />
 
         <div className="footer-bottom">
-          <span>© 2026 ScaleChef. All rights reserved.</span>
+          <span>© 2026 ScaleChefs. All rights reserved.</span>
           <span>From strategy to scale.</span>
         </div>
       </div>

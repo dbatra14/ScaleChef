@@ -20,12 +20,12 @@ export default function Home() {
           </h1>
 
           <p className="hero-description">
-            ScaleChef is your growth partner—combining smart technology,
+            ScaleChefs is your growth partner—combining smart technology,
             standout marketing and practical AI to turn momentum into scale.
           </p>
 
           <div className="hero-actions">
-            <a className="primary-button" href="mailto:hello@scalechef.com">
+            <a className="primary-button" href="mailto:hello@scalechefs.com">
               Cook up growth <Arrow />
             </a>
             <a className="text-link" href="#services">
@@ -36,7 +36,7 @@ export default function Home() {
 
         </div>
 
-        <div className="hero-visual" aria-label="ScaleChef growth system visual">
+        <div className="hero-visual" aria-label="ScaleChefs growth system visual">
           <div className="visual-topline">
             <span>THE SCALE KITCHEN</span>
             <span>EST. 2026</span>
