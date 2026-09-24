@@ -2,8 +2,8 @@ import Navbar from "@/components/navbar";
 import ContactForm from "./contact-form";
 
 export const metadata = {
-  title: "Contact Us — ScaleChef",
-  description: "Get in touch with ScaleChef — tell us about your project and we reply within 24h.",
+  title: "Contact Us — ScaleChefs",
+  description: "Get in touch with ScaleChefs — tell us about your project and we reply within 24h.",
 };
 
 export default function ContactPage() {
@@ -43,12 +43,12 @@ export default function ContactPage() {
               <div className="mt-4 grid gap-4">
                 <div>
                   <div className="text-[11px] font-bold uppercase tracking-wide text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>Email</div>
-                  <a href="mailto:hello@scalechef.com" className="mt-1 inline-block text-[14px] font-semibold text-[#1D1D1F] hover:text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>hello@scalechef.com</a>
+                  <a href="mailto:hello@scalechefs.com" className="mt-1 inline-block text-[14px] font-semibold text-[#1D1D1F] hover:text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>hello@scalechefs.com</a>
                   <div className="mt-1 text-[12px] text-zinc-500">We reply within 24h, Mon–Sat.</div>
                 </div>
                 <div>
                   <div className="text-[11px] font-bold uppercase tracking-wide text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>WhatsApp</div>
-                  <a href="https://wa.me/9188607822800?text=Hello%20ScaleChef%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details." target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-[14px] font-semibold text-[#1D1D1F] hover:text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>+91 88607 82280</a>
+                  <a href="https://wa.me/9188607822800?text=Hello%20ScaleChefs%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details." target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-[14px] font-semibold text-[#1D1D1F] hover:text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>+91 88607 82280</a>
                   <div className="mt-1 text-[12px] text-zinc-500">Instant reply • Avg. 2 min • 10am–7pm IST</div>
                 </div>
                 <div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
       {/* Bottom note */}
       <section className="border-t border-black/5 bg-white px-[4.2vw] py-8">
         <div className="mx-auto max-w-6xl text-center text-[11px] text-zinc-400">
-          Prefer email? <a href="mailto:hello@scalechef.com" className="font-bold text-[#19B86A] underline underline-offset-2 hover:text-[#109556]">hello@scalechef.com</a> — we&apos;re here Mon–Sat, 10am–7pm IST.
+          Prefer email? <a href="mailto:hello@scalechefs.com" className="font-bold text-[#19B86A] underline underline-offset-2 hover:text-[#109556]">hello@scalechefs.com</a> — we&apos;re here Mon–Sat, 10am–7pm IST.
         </div>
       </section>
     </main>

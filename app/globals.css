@@ -156,7 +156,9 @@ img { display: block; max-width: 100%; }
 .hero { min-height: calc(100svh - 134px); display: grid; grid-template-columns: 51% 49%; }
 .hero-copy { padding: clamp(36px, 6vh, 96px) clamp(20px, 5vw, 96px) 36px 4.2vw; display: flex; flex-direction: column; min-width: 0; }
 .eyebrow { display: flex; align-items: center; gap: 10px; font-family: "Inter", sans-serif; font-size: 11px; line-height: 1; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; }
-.eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 5px rgba(25,184,106,.15); flex-shrink: 0; }
+.eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 5px rgba(25,184,106,.15); flex-shrink: 0; animation: eyebrow-blink 1.6s ease-in-out infinite; }
+@keyframes eyebrow-blink { 0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 5px rgba(25,184,106,.15); } 50% { opacity: 0.35; transform: scale(0.85); box-shadow: 0 0 0 0 rgba(25,184,106,0); } }
+@media (prefers-reduced-motion: reduce) { .eyebrow-dot { animation: none; } }
 h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Inter", sans-serif; font-size: clamp(38px, 5.2vw, 86px); line-height: .94; letter-spacing: -.065em; font-weight: 700; overflow-wrap: break-word; }
 .accent-word { color: var(--primary); position: relative; white-space: nowrap; }
 .accent-word::after { content: ""; position: absolute; width: 11px; height: 11px; border: 2px solid currentColor; border-radius: 50%; top: 3px; right: -16px; }

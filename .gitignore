@@ -37,6 +37,10 @@ yarn-error.log*
 # local dev logs - DO NOT PUSH (local memory only)
 dev.log
 dev2.log
+dev-3002.log
+dev-current.log
+dev*.log
+.wrangler/wrangler.log
 
 /dist/
 /.wrangler/

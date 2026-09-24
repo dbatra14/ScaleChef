@@ -32,7 +32,7 @@ const PROJECTS: Project[] = [
     name: "DrishtiVision CRM",
     category: "CRM / Business Software",
     categories: ["CRM", "WEB"],
-    desc: "A purpose-built CRM experience to organize workflows and customer management.",
+    desc: "A dedicated CRM built to bring structure to customer management and daily business workflows. DrishtiVision puts the focus on organised information and a more connected way of working.",
     url: "https://drishtivision-crm.vercel.app/",
     image: "/portfolio-drishtivision.png",
     alt: "DrishtiVision CRM interface",

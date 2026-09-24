@@ -13,15 +13,15 @@ async function render() {
   );
 }
 
-test("server-renders the ScaleChef homepage", async () => {
+test("server-renders the ScaleChefs homepage", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>ScaleChef — Technology × Marketing × AI<\/title>/i);
+  assert.match(html, /<title>ScaleChefs — Technology × Marketing × AI<\/title>/i);
   assert.match(html, /We mix tech/);
-  assert.match(html, /ScaleChef/);
+  assert.match(html, /ScaleChefs/);
   assert.match(html, /Technology/);
   assert.match(html, /Marketing/);
   assert.match(html, /Cook up growth/);
