@@ -9,10 +9,6 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  turbopack: {
-    root: "C:/Users/jhash/ScaleChef",
-  },
-  outputFileTracingRoot: "C:/Users/jhash/ScaleChef",
 };
 
 export default nextConfig;
