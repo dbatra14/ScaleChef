@@ -62,6 +62,10 @@ export default function Home() {
             <span className="signal-icon">03</span>
             <div><strong>AI</strong><small>Applied intelligently</small></div>
           </div>
+          <div className="signal-card" style={{ right: "5%", bottom: "18%", transform: "rotate(-1.8deg)" }}>
+            <span className="signal-icon">04</span>
+            <div><strong>Growth Ops</strong><small>Systems that scale</small></div>
+          </div>
 
           <div className="visual-footer">
             <span>STRATEGY</span><i />
