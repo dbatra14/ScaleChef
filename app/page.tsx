@@ -141,7 +141,7 @@ export default function Home() {
               <div className="portfolio-bento-body is-compact">
                 <span className="portfolio-category">CRM / BUSINESS SOFTWARE</span>
                 <h3 className="portfolio-title">DrishtiVision CRM</h3>
-                <p className="portfolio-desc">A centralized CRM platform to manage customers, pipelines and operations.</p>
+                <p className="portfolio-desc">A dedicated CRM built to bring structure to customer management and daily business workflows. DrishtiVision puts the focus on organised information and a more connected way of working.</p>
                 <span className="portfolio-cta">View case study <span className="portfolio-cta-arrow" aria-hidden="true">→</span></span>
               </div>
             </a>
