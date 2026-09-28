@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar";
+import PortfolioTiles from "@/components/portfolio-tiles";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
@@ -98,101 +99,7 @@ export default function Home() {
           <h2>Work that speaks for scale.</h2>
           <p>A glimpse of momentum we have cooked for ambitious teams.</p>
         </div>
-        <div className="portfolio-bento">
-          <a
-            href="https://misaki-medspa.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="portfolio-bento-card is-large"
-            aria-label="View Misaki Med Spa — Healthcare web experience (opens in new tab)"
-          >
-            <div className="portfolio-bento-media">
-              <img
-                src="/portfolio-misaki.png"
-                alt="Misaki Med Spa website"
-                loading="lazy"
-                className="portfolio-bento-img"
-              />
-            </div>
-            <div className="portfolio-bento-body">
-              <span className="portfolio-category">HEALTHCARE · WEB DEVELOPMENT</span>
-              <h3 className="portfolio-title">Misaki Med Spa</h3>
-              <p className="portfolio-desc">For Misaki Medspa, we brought the brand&apos;s focus on beauty, care, and personal attention into its online presence. The website combines treatment information, an introduction to the team, and clear consultation prompts to guide visitors from initial curiosity to making an enquiry. The approach balances an aspirational brand experience with practical navigation, helping visitors understand the offering and find their next step.</p>
-              <span className="portfolio-cta">View case study <span className="portfolio-cta-arrow" aria-hidden="true">→</span></span>
-            </div>
-          </a>
-
-          <div className="portfolio-bento-stack">
-            <a
-              href="https://drishtivision-crm.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="portfolio-bento-card is-compact"
-              aria-label="View DrishtiVision CRM — CRM business software (opens in new tab)"
-            >
-              <div className="portfolio-bento-media is-compact">
-                <img
-                  src="/portfolio-drishtivision.png"
-                  alt="DrishtiVision CRM interface"
-                  loading="lazy"
-                  className="portfolio-bento-img"
-                />
-              </div>
-              <div className="portfolio-bento-body is-compact">
-                <span className="portfolio-category">CRM / BUSINESS SOFTWARE</span>
-                <h3 className="portfolio-title">DrishtiVision CRM</h3>
-                <p className="portfolio-desc">A centralized CRM platform to manage customers, pipelines and operations.</p>
-                <span className="portfolio-cta">View case study <span className="portfolio-cta-arrow" aria-hidden="true">→</span></span>
-              </div>
-            </a>
-
-            <a
-              href="https://dayhr.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="portfolio-bento-card is-compact"
-              aria-label="View Day HR — HR technology platform (opens in new tab)"
-            >
-              <div className="portfolio-bento-media is-compact">
-                <img
-                  src="/portfolio-dayhr.png"
-                  alt="Day HR platform"
-                  loading="lazy"
-                  className="portfolio-bento-img"
-                />
-              </div>
-              <div className="portfolio-bento-body is-compact">
-                <span className="portfolio-category">HR TECHNOLOGY</span>
-                <h3 className="portfolio-title">Day HR</h3>
-                <p className="portfolio-desc">A streamlined HR platform for attendance, leave and payroll.</p>
-                <span className="portfolio-cta">View case study <span className="portfolio-cta-arrow" aria-hidden="true">→</span></span>
-              </div>
-            </a>
-          </div>
-
-          <a
-            href="https://riverview-roofing.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="portfolio-bento-card is-wide"
-            aria-label="View Riverview Roofing — local business website (opens in new tab)"
-          >
-            <div className="portfolio-bento-media is-wide">
-              <img
-                src="/portfolio-riverview.png"
-                alt="Riverview Roofing website"
-                loading="lazy"
-                className="portfolio-bento-img"
-              />
-            </div>
-            <div className="portfolio-bento-body is-wide">
-              <span className="portfolio-category">LOCAL BUSINESS / WEB DEVELOPMENT</span>
-              <h3 className="portfolio-title">Riverview Roofing</h3>
-              <p className="portfolio-desc">A conversion-focused website for a Texas roofing company — built to drive inspections and trust.</p>
-              <span className="portfolio-cta">View case study <span className="portfolio-cta-arrow" aria-hidden="true">→</span></span>
-            </div>
-          </a>
-        </div>
+        <PortfolioTiles />
       </section>
 
     </main>

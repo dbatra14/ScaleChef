@@ -42,6 +42,9 @@ dev-current.log
 dev*.log
 .wrangler/wrangler.log
 
+# local opencode agent skills - installed per-machine, DO NOT PUSH
+/.opencode/
+
 /dist/
 /.wrangler/
 /outputs/
