@@ -1,57 +1,44 @@
 "use client";
 
 import { useState } from "react";
-import { FaLinkedinIn, FaTwitter, FaBehance, FaInstagram } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 
 export interface TeamMember {
   id: string;
   name: string;
   role: string;
-  imageColor: string;
-  imageBw: string;
-  social?: {
-    twitter?: string;
-    linkedin?: string;
-    instagram?: string;
-    behance?: string;
-  };
+  imageColor?: string;
+  imageBw?: string;
 }
 
 const DEFAULT_MEMBERS: TeamMember[] = [
   {
     id: "1",
-    name: "Chadrack",
-    role: "director of photography",
-    imageColor: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-    imageBw: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&sat=-100",
-    social: { twitter: "#", linkedin: "#", behance: "#" },
+    name: "Dhiraj Batra",
+    role: "Founder",
   },
   {
     id: "2",
-    name: "Mak VieSAinte",
-    role: "FOUNDER",
-    imageColor: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
-    imageBw: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&sat=-100",
-    social: { twitter: "#", linkedin: "#" },
+    name: "Akshat Jain",
+    role: "Lead Front-End",
   },
   {
     id: "3",
-    name: "Osiris Balonga",
-    role: "LEAD FRONT-END",
-    imageColor: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop",
-    imageBw: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&sat=-100",
-    social: { twitter: "#", linkedin: "#" },
+    name: "Aditya",
+    role: "Product Owner",
   },
   {
     id: "4",
-    name: "Jacques",
-    role: "PRODUCT OWNER",
-    imageColor: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&h=400&fit=crop",
-    imageBw: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&h=400&fit=crop&sat=-100",
-    social: { linkedin: "#" },
+    name: "Shudhanshu",
+    role: "Growth & Strategy",
   },
 ];
+
+function initialsFor(name: string) {
+  const parts = name.trim().split(/\s+/);
+  const letters = parts.length > 1 ? [parts[0][0], parts[parts.length - 1][0]] : [parts[0][0]];
+  return letters.join("").toUpperCase();
+}
 
 interface TeamShowcaseProps {
   members?: TeamMember[];
@@ -100,6 +87,7 @@ function PhotoCard({
 }) {
   const isActive = hoveredId === member.id;
   const isDimmed = hoveredId !== null && !isActive;
+  const hasPhoto = Boolean(member.imageBw && member.imageColor);
 
   return (
     <div
@@ -111,16 +99,37 @@ function PhotoCard({
       onMouseEnter={() => onHover(member.id)}
       onMouseLeave={() => onHover(null)}
     >
-      <img
-        src={member.imageBw}
-        alt={member.name}
-        className={cn("absolute inset-0 w-full h-full object-cover transition-opacity duration-500", isActive ? "opacity-0" : "opacity-100")}
-      />
-      <img
-        src={member.imageColor}
-        alt={member.name}
-        className={cn("absolute inset-0 w-full h-full object-cover transition-opacity duration-500", isActive ? "opacity-100" : "opacity-0")}
-      />
+      {hasPhoto ? (
+        <>
+          <img
+            src={member.imageBw}
+            alt={member.name}
+            className={cn("absolute inset-0 w-full h-full object-cover transition-opacity duration-500", isActive ? "opacity-0" : "opacity-100")}
+          />
+          <img
+            src={member.imageColor}
+            alt={member.name}
+            className={cn("absolute inset-0 w-full h-full object-cover transition-opacity duration-500", isActive ? "opacity-100" : "opacity-0")}
+          />
+        </>
+      ) : (
+        <div
+          className={cn(
+            "absolute inset-0 w-full h-full flex items-center justify-center transition-colors duration-500",
+            isActive ? "bg-[#19B86A]" : "bg-[#EEFAF3]"
+          )}
+        >
+          <span
+            className={cn(
+              "font-semibold tracking-tight transition-colors duration-500 select-none",
+              isActive ? "text-white" : "text-[#19B86A]"
+            )}
+            style={{ fontSize: "clamp(32px, 4.2vw, 44px)", lineHeight: 1 }}
+          >
+            {initialsFor(member.name)}
+          </span>
+        </div>
+      )}
     </div>
   );
 }
@@ -136,37 +145,12 @@ function MemberRow({
 }) {
   const isActive = hoveredId === member.id;
   const isDimmed = hoveredId !== null && !isActive;
-  const hasSocial = member.social?.twitter ?? member.social?.linkedin ?? member.social?.instagram ?? member.social?.behance;
 
   return (
     <div className={cn("cursor-pointer transition-opacity duration-300", isDimmed ? "opacity-50" : "opacity-100")} onMouseEnter={() => onHover(member.id)} onMouseLeave={() => onHover(null)}>
       <div className="flex items-center gap-2.5">
         <span className={cn("w-4 h-3 rounded-[5px] flex-shrink-0 transition-all duration-300", isActive ? "bg-white w-5" : "bg-white/25")} />
         <span className={cn("text-base md:text-[18px] font-semibold leading-none tracking-tight transition-colors duration-300", isActive ? "text-white" : "text-white/70")}>{member.name}</span>
-        {hasSocial && (
-          <div className={cn("flex items-center gap-1.5 ml-0.5 transition-all duration-200", isActive ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 pointer-events-none")}>
-            {member.social?.twitter && (
-              <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="p-1 rounded text-white hover:text-white hover:bg-white/10 transition-all duration-150 hover:scale-110">
-                <FaTwitter size={10} color="white" />
-              </a>
-            )}
-            {member.social?.linkedin && (
-              <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="p-1 rounded text-white hover:text-white hover:bg-white/10 transition-all duration-150 hover:scale-110">
-                <FaLinkedinIn size={10} color="white" />
-              </a>
-            )}
-            {member.social?.instagram && (
-              <a href={member.social.instagram} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="p-1 rounded text-white hover:text-white hover:bg-white/10 transition-all duration-150 hover:scale-110">
-                <FaInstagram size={10} color="white" />
-              </a>
-            )}
-            {member.social?.behance && (
-              <a href={member.social.behance} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="p-1 rounded text-white hover:text-white hover:bg-white/10 transition-all duration-150 hover:scale-110">
-                <FaBehance size={10} color="white" />
-              </a>
-            )}
-          </div>
-        )}
       </div>
       <p className="mt-1.5 pl-[27px] text-[7px] md:text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">{member.role}</p>
     </div>
