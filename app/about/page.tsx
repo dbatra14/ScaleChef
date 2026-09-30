@@ -20,7 +20,7 @@ export default function AboutPage() {
             Small team. <span className="text-[#19B86A]">Big scale</span> mindset.
           </h1>
           <p className="mt-4 max-w-2xl text-[16px] leading-6 text-zinc-600">
-            We operate like your on-demand growth kitchen — lean, fast, and obsessed with outcomes. Six people around one table, no account managers, no 40-slide decks, just whatever it takes to ship.
+            We operate like your on-demand growth kitchen — lean, fast, and obsessed with outcomes. Four people around one table, no account managers, no 40-slide decks, just whatever it takes to ship.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="mailto:hello@scalechefs.com" className="bg-[#19B86A] px-6 py-3 text-[13px] font-bold text-white hover:bg-[#109556]" style={{ fontFamily: "Inter, sans-serif" }}>Join our journey ↗</a>
@@ -34,7 +34,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
             <div className="rounded-2xl border border-[#19B86A]/15 bg-white p-5 text-center">
-              <div className="text-[28px] font-bold leading-none text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>50+</div>
+              <div className="text-[28px] font-bold leading-none text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>60+</div>
               <div className="mt-1 text-[11px] font-medium uppercase tracking-wide text-zinc-500">Projects shipped</div>
             </div>
             <div className="rounded-2xl border border-[#19B86A]/15 bg-white p-5 text-center">
@@ -42,11 +42,11 @@ export default function AboutPage() {
               <div className="mt-1 text-[11px] font-medium uppercase tracking-wide text-zinc-500">Avg. momentum lift</div>
             </div>
             <div className="rounded-2xl border border-[#19B86A]/15 bg-white p-5 text-center">
-              <div className="text-[28px] font-bold leading-none text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>98%</div>
+              <div className="text-[28px] font-bold leading-none text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>95%</div>
               <div className="mt-1 text-[11px] font-medium uppercase tracking-wide text-zinc-500">Client retention</div>
             </div>
             <div className="rounded-2xl border border-zinc-900 bg-[#1D1D1F] p-5 text-center">
-              <div className="text-[22px] font-bold leading-none text-white" style={{ fontFamily: "Inter, sans-serif" }}>6<span className="text-[#19B86A]">/</span>0</div>
+              <div className="text-[22px] font-bold leading-none text-white" style={{ fontFamily: "Inter, sans-serif" }}>4<span className="text-[#19B86A]">/</span>0</div>
               <div className="mt-1 text-[11px] font-medium uppercase tracking-wide text-white/60">people / middle management</div>
             </div>
             <div className="col-span-2 md:col-span-1 rounded-2xl border border-[#19B86A]/15 bg-white p-5 text-center">
