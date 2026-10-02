@@ -15,7 +15,7 @@ export default function AboutPage() {
       {/* HERO - keep existing, add culture beat as sharp sentence */}
       <section className="border-b border-black/10 bg-gradient-to-b from-[#DCF8E8] to-white px-[4.2vw] py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
-          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>04 — About Us</p>
+          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>About Us</p>
           <h1 className="mt-3 max-w-3xl text-[36px] font-bold leading-[0.95] tracking-tight md:text-[56px]" style={{ fontFamily: "Inter, sans-serif" }}>
             Small team. <span className="text-[#19B86A]">Big scale</span> mindset.
           </h1>
@@ -63,7 +63,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
             <div className="max-w-[360px]">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>02 — The Menu</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>The Menu</p>
               <h2 className="mt-3 text-[32px] font-bold leading-[0.9] tracking-tight md:text-[40px]" style={{ fontFamily: "Inter, sans-serif" }}>We don&apos;t do<br />a la carte chaos.</h2>
               <p className="mt-4 text-[14px] leading-6 text-zinc-600">Pick a course. We fire the right station — no upsells, no handoffs to a B-team you&apos;ve never met.</p>
             </div>
@@ -141,7 +141,7 @@ export default function AboutPage() {
       {/* 3. HOW A PROJECT GETS COOKED - horizontal strip, thin line, numerals, under 10-word one-liners */}
       <section className="border-y border-black/10 bg-[#1D1D1F] px-[4.2vw] py-10 md:py-12">
         <div className="mx-auto max-w-6xl">
-          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#9BE6BE]" style={{ fontFamily: "Inter, sans-serif" }}>03 — How a project gets cooked</p>
+          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#9BE6BE]" style={{ fontFamily: "Inter, sans-serif" }}>How a project gets cooked</p>
           <div className="relative mt-8">
             <div className="absolute left-0 right-0 top-[18px] hidden h-[1px] bg-white/15 md:block"></div>
             <div className="grid gap-8 md:grid-cols-4">
