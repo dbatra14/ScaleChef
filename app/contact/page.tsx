@@ -14,7 +14,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="border-b border-black/10 bg-gradient-to-b from-[#DCF8E8] to-white px-[4.2vw] py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
-          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>05 — Contact Us</p>
+          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#19B86A]" style={{ fontFamily: "Inter, sans-serif" }}>Contact Us</p>
           <h1 className="mt-3 max-w-3xl text-[36px] font-bold leading-[0.95] tracking-tight md:text-[56px]" style={{ fontFamily: "Inter, sans-serif" }}>
             Let&apos;s cook <span className="text-[#19B86A]">something</span> great.
           </h1>

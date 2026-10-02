@@ -1,5 +1,7 @@
 import Navbar from "@/components/navbar";
 import PortfolioTiles from "@/components/portfolio-tiles";
+import ContactForm from "./contact/contact-form";
+import { PROJECTS } from "@/lib/projects";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
@@ -78,7 +80,7 @@ export default function Home() {
 
       <section className="section services-section" id="services">
         <div className="section-head">
-          <span className="section-kicker">02 — Services</span>
+          <span className="section-kicker">Services</span>
           <h2>Everything you need to scale.</h2>
           <p>Pick the engine you need — we plug it into your growth kitchen.</p>
         </div>
@@ -95,11 +97,48 @@ export default function Home() {
 
       <section className="section portfolio-section" id="portfolio">
         <div className="section-head">
-          <span className="section-kicker">03 — Portfolio</span>
+          <span className="section-kicker">Portfolio</span>
           <h2>Work that speaks for scale.</h2>
           <p>A glimpse of momentum we have cooked for ambitious teams.</p>
         </div>
-        <PortfolioTiles />
+        <PortfolioTiles projects={PROJECTS.slice(0, 3)} />
+        <div className="portfolio-more">
+          <a className="text-link" href="/portfolio">
+            View all {PROJECTS.length} projects <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <section className="section contact-section" id="contact">
+        <div className="contact-section-grid">
+          <div className="section-head">
+            <span className="section-kicker">Contact</span>
+            <h2>Let&rsquo;s cook something great.</h2>
+            <p>
+              Tell us about your project, goals and timeline. We reply within 24h
+              &mdash; no pitch deck required.
+            </p>
+            <ul className="contact-section-list">
+              <li>
+                <a href="mailto:hello@scalechefs.com">hello@scalechefs.com</a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/9188607822800?text=Hello%20ScaleChefs%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp us directly
+                </a>
+              </li>
+              <li className="contact-section-meta">India &middot; Worldwide</li>
+            </ul>
+          </div>
+
+          <div className="contact-section-card">
+            <ContactForm />
+          </div>
+        </div>
       </section>
 
     </main>
