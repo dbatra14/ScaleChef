@@ -8,13 +8,11 @@ type Props = {
 };
 
 const SERVICES = [
-  "Web Development",
-  "Custom Software Development",
+  "Website Development",
+  "Technology AMC Management (Website / Software Management)",
   "AI Solutions",
-  "UI/UX Design",
-  "Digital Marketing",
-  "SEO & GEO",
-  "PPC & Advertising",
+  "Software Development and Custom Tech Solutions",
+  "Branding and UI/UX Designing",
   "Other",
 ];
 
@@ -153,7 +151,7 @@ export default function ContactModal({ open, onClose }: Props) {
               <div className="contact-modal-actions">
                 <button type="submit" className="contact-submit">Send message ↗</button>
                 <a
-                  href="https://wa.me/9188607822800?text=Hello%20ScaleChefs%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details."
+                  href="https://wa.me/918860822800?text=Hello%20ScaleChefs%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-wa-link"

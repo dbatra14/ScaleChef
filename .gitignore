@@ -49,3 +49,10 @@ dev*.log
 /.wrangler/
 /outputs/
 /work/
+
+# brand guideline source documents (reference only, never commit)
+ScaleChefs-BrandGuidelines.pdf
+
+# source logo exports supplied locally (never commit)
+/sc-lpgp-png.png
+/scalechefs logo*.jpg

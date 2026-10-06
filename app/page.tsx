@@ -28,7 +28,7 @@ export default function Home() {
           </p>
 
           <div className="hero-actions">
-            <a className="primary-button" href="mailto:hello@scalechefs.com">
+            <a className="primary-button" href="mailto:growth.scalechefs@gmail.com">
               Cook up growth <Arrow />
             </a>
             <a className="text-link" href="#services">
@@ -85,13 +85,11 @@ export default function Home() {
           <p>Pick the engine you need — we plug it into your growth kitchen.</p>
         </div>
         <div className="service-grid">
-          <article className="service-card"><h3>Web Development</h3><p>High-performance, SEO-ready websites built to convert.</p></article>
-          <article className="service-card"><h3>Custom Software Development</h3><p>Tailored systems that scale with you.</p></article>
+          <article className="service-card"><h3>Website Development</h3><p>High-performance, SEO-ready websites built to convert.</p></article>
+          <article className="service-card"><h3>Technology AMC Management (Website / Software Management)</h3><p>Annual maintenance contracts that keep your website and software monitored, patched and running.</p></article>
           <article className="service-card"><h3>AI Solutions</h3><p>Applied intelligence that delivers real ROI.</p></article>
-          <article className="service-card"><h3>UI/UX Design</h3><p>Human-centered design that turns users into fans.</p></article>
-          <article className="service-card"><h3>Digital Marketing</h3><p>Performance and brand marketing that compounds.</p></article>
-          <article className="service-card"><h3>SEO &amp; GEO</h3><p>Be found everywhere your customers search.</p></article>
-          <article className="service-card"><h3>PPC &amp; Advertising</h3><p>Paid growth that converts efficiently.</p></article>
+          <article className="service-card"><h3>Software Development and Custom Tech Solutions</h3><p>Tailored systems and integrations that scale with you.</p></article>
+          <article className="service-card"><h3>Branding and UI/UX Designing</h3><p>Identity and interface design that turns users into fans.</p></article>
         </div>
       </section>
 
@@ -120,11 +118,11 @@ export default function Home() {
             </p>
             <ul className="contact-section-list">
               <li>
-                <a href="mailto:hello@scalechefs.com">hello@scalechefs.com</a>
+                <a href="mailto:growth.scalechefs@gmail.com">growth.scalechefs@gmail.com</a>
               </li>
               <li>
                 <a
-                  href="https://wa.me/9188607822800?text=Hello%20ScaleChefs%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details."
+                  href="https://wa.me/918860822800?text=Hello%20ScaleChefs%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details."
                   target="_blank"
                   rel="noopener noreferrer"
                 >

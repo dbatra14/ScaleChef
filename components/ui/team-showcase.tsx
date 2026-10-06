@@ -15,22 +15,22 @@ const DEFAULT_MEMBERS: TeamMember[] = [
   {
     id: "1",
     name: "Dhiraj Batra",
-    role: "Founder",
+    role: "Full Stack Developer",
   },
   {
     id: "2",
     name: "Akshat Jain",
-    role: "Lead Front-End",
+    role: "Head of Operations and Marketing",
   },
   {
     id: "3",
     name: "Aditya",
-    role: "Product Owner",
+    role: "Head of Operations and Marketing",
   },
   {
     id: "4",
-    name: "Shudhanshu",
-    role: "Growth & Strategy",
+    name: "Sudhanshu",
+    role: "Full Stack Developer",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function TeamShowcase({ members = DEFAULT_MEMBERS }: TeamShowcase
   const col2 = fourMembers.filter((_, i) => i % 2 === 1);
 
   return (
-    <div className="flex flex-col md:flex-row items-start gap-8 md:gap-10 lg:gap-14 select-none w-full max-w-4xl mx-auto py-8 px-4 md:px-6 font-sans">
+    <div className="flex flex-col md:flex-row items-start gap-8 md:gap-10 lg:gap-14 select-none w-full max-w-4xl mx-auto py-8 px-4 md:px-6">
       <div className="flex gap-2 md:gap-3 flex-shrink-0 overflow-x-auto pb-1 md:pb-0">
         <div className="flex flex-col gap-2 md:gap-3">
           {col1.map((member) => (
@@ -116,7 +116,7 @@ function PhotoCard({
         <div
           className={cn(
             "absolute inset-0 w-full h-full flex items-center justify-center transition-colors duration-500",
-            isActive ? "bg-[#19B86A]" : "bg-[#EEFAF3]"
+            isActive ? "bg-[#19B86A]" : "bg-[#F5F5F7]"
           )}
         >
           <span

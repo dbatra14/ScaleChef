@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 const WHATSAPP_HREF =
-  "https://wa.me/9188607822800?text=Hello%20ScaleChefs%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details.";
+  "https://wa.me/918860822800?text=Hello%20ScaleChefs%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details.";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -109,8 +109,7 @@ export default function Navbar() {
     <>
       <header className={`nav-wrap ${scrolled ? "is-scrolled" : ""}`} id="navbar">
         <Link href="/" className="brand" aria-label="ScaleChefs home">
-          <img src="/logo.png" alt="ScaleChefs logo" width={84} height={64} className="brand-logo" />
-          <span>ScaleChefs</span>
+          <img src="/logo.png" alt="ScaleChefs" width={147} height={44} className="brand-logo" />
         </Link>
 
         <nav className={`nav-links ${menuOpen ? "is-open" : ""}`} aria-label="Primary navigation">
@@ -154,32 +153,24 @@ export default function Navbar() {
               <div className="dropdown-inner">
                 <div className="dropdown-links">
                   <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }} role="menuitem">
-                    <strong>Web Development <span>→</span></strong>
+                    <strong>Website Development <span>→</span></strong>
                     <small>High-performance websites</small>
                   </Link>
                   <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }} role="menuitem">
-                    <strong>Custom Software Development <span>→</span></strong>
-                    <small>Tailored systems that scale</small>
+                    <strong>Technology AMC Management <span>→</span></strong>
+                    <small>Website &amp; software management</small>
                   </Link>
                   <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }} role="menuitem">
                     <strong>AI Solutions <span>→</span></strong>
                     <small>Applied intelligence, real ROI</small>
                   </Link>
                   <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }} role="menuitem">
-                    <strong>UI/UX Design <span>→</span></strong>
+                    <strong>Software Development &amp; Custom Tech <span>→</span></strong>
+                    <small>Tailored systems that scale</small>
+                  </Link>
+                  <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }} role="menuitem">
+                    <strong>Branding &amp; UI/UX Designing <span>→</span></strong>
                     <small>Human-centered product design</small>
-                  </Link>
-                  <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }} role="menuitem">
-                    <strong>Digital Marketing <span>→</span></strong>
-                    <small>Growth &amp; performance</small>
-                  </Link>
-                  <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }} role="menuitem">
-                    <strong>SEO &amp; GEO <span>→</span></strong>
-                    <small>Be found everywhere</small>
-                  </Link>
-                  <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }} role="menuitem">
-                    <strong>PPC &amp; Advertising <span>→</span></strong>
-                    <small>Paid growth that converts</small>
                   </Link>
                 </div>
               </div>
@@ -205,13 +196,11 @@ export default function Navbar() {
             </div>
 
             <div className={`mobile-services ${servicesOpen ? "is-open" : ""}`}>
-              <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }}>Web Development</Link>
-              <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }}>Custom Software Development</Link>
+              <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }}>Website Development</Link>
+              <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }}>Technology AMC Management</Link>
               <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }}>AI Solutions</Link>
-              <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }}>UI/UX Design</Link>
-              <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }}>Digital Marketing</Link>
-              <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }}>SEO &amp; GEO</Link>
-              <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }}>PPC &amp; Advertising</Link>
+              <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }}>Software Development &amp; Custom Tech</Link>
+              <Link href="/#services" onClick={() => { setServicesOpen(false); setMenuOpen(false); }}>Branding &amp; UI/UX Designing</Link>
             </div>
           </div>
 
@@ -246,7 +235,7 @@ export default function Navbar() {
                 <strong>Get in touch — Fill form <span>→</span></strong>
                 <small>We reply within 24h</small>
               </Link>
-              <div className="mobile-scale-email">Prefer email? <a href="mailto:hello@scalechefs.com">hello@scalechefs.com</a></div>
+              <div className="mobile-scale-email">Prefer email? <a href="mailto:growth.scalechefs@gmail.com">growth.scalechefs@gmail.com</a></div>
             </div>
           </div>
         </nav>
