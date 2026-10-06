@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer-brand">
             <Link href="/" className="footer-brand-name" aria-label="ScaleChefs home">
-              <img src="/logo.png" alt="ScaleChefs" width={164} height={41} className="footer-logo" />
+              <img src="/logo-footer.png" alt="ScaleChefs" width={133} height={41} className="footer-logo" />
             </Link>
             <p className="footer-brand-desc">
               Technology, marketing and AI—combined<br />

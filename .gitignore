@@ -56,3 +56,6 @@ ScaleChefs-BrandGuidelines.pdf
 # source logo exports supplied locally (never commit)
 /sc-lpgp-png.png
 /scalechefs logo*.jpg
+/scalechefs-without-background.png
+/sc - without background png.png
+*without background*.png
