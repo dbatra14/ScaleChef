@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description: "ScaleChefs helps ambitious businesses scale through technology, marketing and practical AI.",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
-      { url: "/favicon.png", sizes: "64x64", type: "image/png" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/logo.png", sizes: "1050x890", type: "image/png" },
+      { url: "/favicon.ico?v=2", sizes: "32x32", type: "image/x-icon" },
+      { url: "/favicon.png?v=2", sizes: "64x64", type: "image/png" },
+      { url: "/favicon.svg?v=2", type: "image/svg+xml" },
+      { url: "/logo.png?v=2", sizes: "900x269", type: "image/png" },
     ],
-    shortcut: "/favicon.ico",
-    apple: "/favicon.png",
+    shortcut: "/favicon.ico?v=2",
+    apple: "/favicon.png?v=2",
   },
   openGraph: {
     title: "ScaleChefs — Technology × Marketing × AI",
