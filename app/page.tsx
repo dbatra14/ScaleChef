@@ -1,5 +1,6 @@
 import Navbar from "@/components/navbar";
 import PortfolioTiles from "@/components/portfolio-tiles";
+import { StaggerTestimonials } from "@/components/ui/stagger-testimonials";
 import ContactForm from "./contact/contact-form";
 import { PROJECTS } from "@/lib/projects";
 
@@ -104,6 +105,17 @@ export default function Home() {
           <a className="text-link" href="/portfolio">
             View all {PROJECTS.length} projects <span aria-hidden="true">&rarr;</span>
           </a>
+        </div>
+      </section>
+
+      <section className="section testimonials-section" id="testimonials">
+        <div className="section-head">
+          <span className="section-kicker">Testimonials</span>
+          <h2>What our clients say.</h2>
+          <p>Straight from the teams we have cooked with.</p>
+        </div>
+        <div className="testimonials-frame">
+          <StaggerTestimonials />
         </div>
       </section>
 
