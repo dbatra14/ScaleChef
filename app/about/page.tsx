@@ -1,5 +1,6 @@
 import TeamShowcase from "@/components/ui/team-showcase";
 import Navbar from "@/components/navbar";
+import ContactForm from "../contact/contact-form";
 import Link from "next/link";
 
 export const metadata = {
@@ -24,7 +25,7 @@ export default function AboutPage() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="mailto:growth.scalechefs@gmail.com" className="bg-[#19B86A] px-6 py-3 text-[13px] font-semibold text-[#1D1D1F] hover:bg-[#9BE6BE]" style={{ fontFamily: "Montserrat, Arial, sans-serif" }}>Join our journey ↗</a>
-            <Link href="/#contact" className="border border-[#1D1D1F] px-6 py-3 text-[13px] font-semibold hover:bg-[#1D1D1F] hover:text-white" style={{ fontFamily: "Montserrat, Arial, sans-serif" }}>Contact Us</Link>
+            <Link href="#contact" className="border border-[#1D1D1F] px-6 py-3 text-[13px] font-semibold hover:bg-[#1D1D1F] hover:text-white" style={{ fontFamily: "Montserrat, Arial, sans-serif" }}>Contact Us</Link>
           </div>
         </div>
       </section>
@@ -175,16 +176,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. CLOSING CTA - one-line hook, on-brand */}
-      <section className="bg-white px-[4.2vw] py-12 md:py-16">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 rounded-[20px] bg-[#1D1D1F] p-8 md:flex-row md:items-center md:p-10">
-          <div>
-            <h2 className="text-[28px] font-normal leading-none tracking-tight text-white md:text-[32px]" style={{ fontFamily: "Prata, Georgia, serif" }}>Hungry? Let&apos;s cook.</h2>
-            <p className="mt-2 max-w-[520px] text-[13px] leading-5 text-white/60">You bring the appetite, we bring the kitchen. No pitch deck required.</p>
+      {/* 6. CONTACT - same pattern as the homepage section */}
+      <section className="section contact-section" id="contact">
+        <div className="contact-section-grid">
+          <div className="section-head">
+            <span className="section-kicker">Contact</span>
+            <h2>Let&rsquo;s cook something great.</h2>
+            <p>
+              Tell us about your project, goals and timeline. We reply within 24h
+              &mdash; no pitch deck required.
+            </p>
+            <ul className="contact-section-list">
+              <li>
+                <a href="mailto:growth.scalechefs@gmail.com">growth.scalechefs@gmail.com</a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/918860822800?text=Hello%20ScaleChefs%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp us directly
+                </a>
+              </li>
+              <li className="contact-section-meta">India &middot; Worldwide</li>
+            </ul>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <a href="mailto:growth.scalechefs@gmail.com" className="bg-[#19B86A] px-6 py-3 text-[13px] font-semibold text-[#1D1D1F] hover:bg-[#9BE6BE]" style={{ fontFamily: "Montserrat, Arial, sans-serif" }}>Join our journey ↗</a>
-            <Link href="/#contact" className="bg-white px-6 py-3 text-[13px] font-semibold text-[#1D1D1F] hover:bg-[#DCF8E8]" style={{ fontFamily: "Montserrat, Arial, sans-serif" }}>Contact Us</Link>
+
+          <div className="contact-section-card">
+            <ContactForm />
           </div>
         </div>
       </section>
