@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar";
 import PortfolioTiles from "@/components/portfolio-tiles";
 import { StaggerTestimonials } from "@/components/ui/stagger-testimonials";
 import ContactWithGlobe from "@/components/ui/contact-with-globe";
+import Services01 from "@/components/ui/services-01";
 import { PROJECTS } from "@/lib/projects";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
@@ -79,20 +80,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section services-section" id="services">
-        <div className="section-head">
-          <span className="section-kicker">Services</span>
-          <h2>Everything you need to scale.</h2>
-          <p>Pick the engine you need — we plug it into your growth kitchen.</p>
-        </div>
-        <div className="service-grid">
-          <article className="service-card"><h3>Website Development</h3><p>High-performance, SEO-ready websites built to convert.</p></article>
-          <article className="service-card"><h3>Technology AMC Management (Website / Software Management)</h3><p>Annual maintenance contracts that keep your website and software monitored, patched and running.</p></article>
-          <article className="service-card"><h3>AI Solutions</h3><p>Applied intelligence that delivers real ROI.</p></article>
-          <article className="service-card"><h3>Software Development and Custom Tech Solutions</h3><p>Tailored systems and integrations that scale with you.</p></article>
-          <article className="service-card"><h3>Branding and UI/UX Designing</h3><p>Identity and interface design that turns users into fans.</p></article>
-        </div>
-      </section>
+      <Services01 />
 
       <section className="section portfolio-section" id="portfolio">
         <div className="section-head">
