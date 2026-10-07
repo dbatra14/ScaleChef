@@ -21,6 +21,12 @@
   --primary-foreground: 240 3.3% 11.8%;
   --card: 0 0% 100%;
   --card-foreground: 240 3.3% 11.8%;
+  --accent: 240 11.1% 96.5%;
+  --accent-foreground: 240 3.3% 11.8%;
+  --secondary: 148 60% 75.5%;
+  --secondary-foreground: 240 3.3% 11.8%;
+  --destructive: 151.6 80.6% 32.4%;
+  --destructive-foreground: 0 0% 100%;
 }
 .dark {
   --background: 0 0% 5%;
@@ -48,6 +54,12 @@
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
 }
 
 * { box-sizing: border-box; }
@@ -285,6 +297,7 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Prata", Georgia, serif
 
 /* ========== HOMEPAGE - testimonials section ========== */
 .testimonials-frame { border: 1px solid var(--line); border-top: 3px solid var(--primary); border-radius: 20px; overflow: hidden; background: var(--white); }
+.contact-globe-section { border-top: 1px solid var(--line); background: var(--soft); }
 
 /* ========== HOMEPAGE - contact section ========== */
 .contact-section { background: linear-gradient(180deg, var(--pale) 0%, var(--white) 100%); }
