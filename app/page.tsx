@@ -3,6 +3,7 @@ import PortfolioTiles from "@/components/portfolio-tiles";
 import { StaggerTestimonials } from "@/components/ui/stagger-testimonials";
 import ContactWithGlobe from "@/components/ui/contact-with-globe";
 import Services01 from "@/components/ui/services-01";
+import WaveLettering from "@/components/ui/wave-lettering";
 import { PROJECTS } from "@/lib/projects";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
@@ -13,6 +14,13 @@ export default function Home() {
       <Navbar />
 
       <section className="hero" id="home">
+        {/* Decorative layer. The canvas is pointer-events:none and the copy
+            sits at z-index 10 above it, so the wave can never intercept the
+            headline, paragraph or buttons. */}
+        <div className="hero-wave" aria-hidden="true">
+          <WaveLettering />
+        </div>
+
         <div className="hero-copy">
           <div className="eyebrow">
             <span className="eyebrow-dot" />
@@ -20,7 +28,8 @@ export default function Home() {
           </div>
 
           <h1>
-            We mix tech,<br />
+            We mix tech,
+            <br />
             marketing &amp; <span className="accent-word">AI.</span>
           </h1>
 
@@ -34,50 +43,11 @@ export default function Home() {
               Cook up growth <Arrow />
             </a>
             <a className="text-link" href="#services">
-              See our services <span aria-hidden="true">↓</span>
+              See our services <span aria-hidden="true">&darr;</span>
             </a>
           </div>
-
-
         </div>
 
-        <div className="hero-visual" aria-label="ScaleChefs growth system visual">
-          <div className="visual-topline">
-            <span>THE SCALE KITCHEN</span>
-            <span>EST. 2026</span>
-          </div>
-
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-          <div className="visual-core">
-            <span>GROWTH</span>
-            <strong>×3.4</strong>
-            <small>AVG. MOMENTUM</small>
-          </div>
-
-          <div className="signal-card signal-tech">
-            <span className="signal-icon">01</span>
-            <div><strong>Technology</strong><small>Built to perform</small></div>
-          </div>
-          <div className="signal-card signal-marketing">
-            <span className="signal-icon">02</span>
-            <div><strong>Marketing</strong><small>Made to connect</small></div>
-          </div>
-          <div className="signal-card signal-ai">
-            <span className="signal-icon">03</span>
-            <div><strong>AI</strong><small>Applied intelligently</small></div>
-          </div>
-          <div className="signal-card" style={{ right: "5%", bottom: "18%", transform: "rotate(-1.8deg)" }}>
-            <span className="signal-icon">04</span>
-            <div><strong>Growth Ops</strong><small>Systems that scale</small></div>
-          </div>
-
-          <div className="visual-footer">
-            <span>STRATEGY</span><i />
-            <span>SYSTEMS</span><i />
-            <span>STORIES</span>
-          </div>
-        </div>
       </section>
 
       <Services01 />
