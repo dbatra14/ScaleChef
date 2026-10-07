@@ -1,7 +1,7 @@
 import Navbar from "@/components/navbar";
 import PortfolioTiles from "@/components/portfolio-tiles";
 import { StaggerTestimonials } from "@/components/ui/stagger-testimonials";
-import ContactForm from "./contact/contact-form";
+import ContactWithGlobe from "@/components/ui/contact-with-globe";
 import { PROJECTS } from "@/lib/projects";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
@@ -119,36 +119,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section contact-section" id="contact">
-        <div className="contact-section-grid">
-          <div className="section-head">
-            <span className="section-kicker">Contact</span>
-            <h2>Let&rsquo;s cook something great.</h2>
-            <p>
-              Tell us about your project, goals and timeline. We reply within 24h
-              &mdash; no pitch deck required.
-            </p>
-            <ul className="contact-section-list">
-              <li>
-                <a href="mailto:growth.scalechefs@gmail.com">growth.scalechefs@gmail.com</a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/918860822800?text=Hello%20ScaleChefs%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  WhatsApp us directly
-                </a>
-              </li>
-              <li className="contact-section-meta">India &middot; Worldwide</li>
-            </ul>
-          </div>
-
-          <div className="contact-section-card">
-            <ContactForm />
-          </div>
-        </div>
+      <section className="contact-globe-section" id="contact">
+        <ContactWithGlobe
+          title="Let&rsquo;s cook something great."
+          description="Tell us about your project, goals and timeline. We reply within 24h &mdash; no pitch deck required."
+        />
       </section>
 
     </main>
