@@ -176,7 +176,10 @@ img { display: block; max-width: 100%; }
 .menu-button[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .menu-button[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-.hero { position: relative; min-height: calc(100svh - 134px); display: grid; place-items: start center; overflow: hidden; isolation: isolate; background: var(--white); }
+/* min() caps the hero on tall viewports: without it the hero always fills the
+   fold, and since the copy is anchored to the top, every spare pixel pools
+   below the buttons as dead wave. On short viewports the svh term still wins. */
+.hero { position: relative; min-height: min(calc(100svh - 134px), 620px); display: grid; place-items: start center; overflow: hidden; isolation: isolate; background: var(--white); }
 /* Wave fills the whole hero behind the copy. No mask and no clear zone: the
    wave passes behind the content, and legibility is handled by the text-shadow
    on the paragraph and the services link below. */
