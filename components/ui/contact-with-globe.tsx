@@ -728,19 +728,55 @@ export default function ContactWithGlobe({
   className,
 }: ContactWithGlobeProps) {
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // Guards against a second submit while the first is still in flight.
+  const inFlight = useRef(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("[ContactWithGlobe] submit", form);
-    setSubmitted(true);
-    setTimeout(() => {
+    if (inFlight.current) return;
+    inFlight.current = true;
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = (await res.json().catch(() => null)) as
+        | { ok?: boolean; error?: string }
+        | null;
+
+      if (!res.ok || !data?.ok) {
+        setStatus("error");
+        setErrorMessage(
+          data?.error ||
+            "We couldn't send that just now. Please try again, or email us directly.",
+        );
+        return;
+      }
+
+      setStatus("sent");
       setForm(EMPTY_FORM);
-      setSubmitted(false);
-    }, 3000);
+    } catch {
+      setStatus("error");
+      setErrorMessage(
+        "We couldn't reach the server. Please try again, or email us directly.",
+      );
+    } finally {
+      inFlight.current = false;
+    }
   };
 
-  if (submitted) {
+  const sending = status === "sending";
+
+  if (status === "sent") {
     return (
       <section
         className={cn(
@@ -760,8 +796,9 @@ export default function ContactWithGlobe({
               Thanks — noted
             </h3>
             <p className="mt-2 text-[13px] leading-5 text-[#6B6B72]">
-              This form isn&apos;t connected to email yet, so nothing has been sent.
-              Please reach us directly and we&apos;ll reply within 24 hours.
+              Your enquiry is on its way to our inbox and we&apos;ve got your
+              email address, so a reply will reach you directly. We&apos;ll get
+              back to you within 24 hours.
             </p>
             <a
               href="mailto:growth.scalechefs@gmail.com"
@@ -971,11 +1008,29 @@ export default function ContactWithGlobe({
               <Button
                 type="submit"
                 size="lg"
-                className="group w-fit h-11 px-8 rounded-xl font-semibold text-sm"
+                disabled={sending}
+                aria-busy={sending}
+                className="group w-fit h-11 px-8 rounded-xl font-semibold text-sm disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-[#19B86A]"
               >
-                Send message
+                {sending ? "Sending…" : "Send message"}
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Button>
+
+              {status === "error" && errorMessage ? (
+                <p
+                  role="alert"
+                  className="w-fit rounded-lg border border-[#E5484D]/25 bg-[#E5484D]/[0.07] px-3 py-2 text-[13px] leading-5 text-[#B42318]"
+                >
+                  {errorMessage}{" "}
+                  <a
+                    href="mailto:growth.scalechefs@gmail.com"
+                    className="font-semibold underline underline-offset-2"
+                  >
+                    Email us directly
+                  </a>
+                  .
+                </p>
+              ) : null}
             </form>
           </motion.div>
         </div>
