@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/footer";
+import WhatsAppFab from "@/components/whatsapp-fab";
 
 export const metadata: Metadata = {
   title: "ScaleChefs — Technology × Marketing × AI",
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <Footer />
+        <WhatsAppFab />
       </body>
     </html>
   );
