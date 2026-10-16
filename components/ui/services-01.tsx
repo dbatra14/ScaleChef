@@ -9,7 +9,7 @@ const header = {
   eyebrow: "Services",
   title: "Everything you need to scale.",
   description:
-    "Pick the engine you need — we plug it into your growth kitchen.",
+    "Pick the engine you need and we plug it into your growth kitchen.",
 };
 
 /**
@@ -62,7 +62,7 @@ const services = [
 
 export default function Services01({ id = "services" }: { id?: string }) {
   return (
-    <Section id={id} className="bg-gradient-to-b from-[#DCF8E8] to-white">
+    <Section id={id} className="border-t-2 border-[rgba(29,29,31,0.16)] bg-white">
       <div className="mx-auto max-w-6xl">
         <SectionHeader {...header} align="left" />
         <ul className="mt-14 divide-y divide-[rgba(29,29,31,0.11)] border-y border-[rgba(29,29,31,0.11)]">

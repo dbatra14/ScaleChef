@@ -5,8 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
-const WHATSAPP_HREF =
-  "https://wa.me/918860822800?text=Hello%20ScaleChefs%20team%21%20I%27m%20interested%20in%20your%20services%20and%20would%20love%20to%20know%20more.%20Please%20share%20details.";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -17,11 +15,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeId, setActiveId] = useState("home");
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [scaleOpen, setScaleOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
-  const scaleRef = useRef<HTMLDivElement>(null);
   const closeTimeoutRef = useRef<number | null>(null);
-  const scaleCloseTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -53,9 +48,6 @@ export default function Navbar() {
       if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
         setServicesOpen(false);
       }
-      if (scaleRef.current && !scaleRef.current.contains(e.target as Node)) {
-        setScaleOpen(false);
-      }
       const nav = document.getElementById("navbar");
       const target = e.target as Node;
       if (menuOpen && nav && !nav.contains(target)) {
@@ -65,7 +57,6 @@ export default function Navbar() {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setServicesOpen(false);
-        setScaleOpen(false);
         setMenuOpen(false);
       }
     };
@@ -90,19 +81,6 @@ export default function Navbar() {
     if (window.innerWidth <= 900) {
       setServicesOpen((v) => !v);
     }
-  };
-
-  const handleScaleEnter = () => {
-    if (scaleCloseTimeoutRef.current) window.clearTimeout(scaleCloseTimeoutRef.current);
-    if (window.innerWidth > 900) setScaleOpen(true);
-  };
-  const handleScaleLeave = () => {
-    if (window.innerWidth > 900) {
-      scaleCloseTimeoutRef.current = window.setTimeout(() => setScaleOpen(false), 80);
-    }
-  };
-  const handleScaleToggle = () => {
-    setScaleOpen((v) => !v);
   };
 
   return (
@@ -211,111 +189,17 @@ export default function Navbar() {
             About Us
           </Link>
 
-          {/* Mobile-only Let's Scale inside drawer */}
-          <div className={`nav-item has-dropdown mobile-cta-item ${scaleOpen ? "is-open" : ""}`}>
-            <a
-              href="#"
-              aria-haspopup="true"
-              aria-expanded={scaleOpen}
-              aria-controls="scale-dropdown-mobile"
-              onClick={(e) => {
-                e.preventDefault();
-                handleScaleToggle();
-              }}
-              className="mobile-scale-trigger"
-            >
-              Let&apos;s scale <span className="nav-arrow" aria-hidden="true">▾</span>
-            </a>
-            <div id="scale-dropdown-mobile" className={`mobile-scale-options ${scaleOpen ? "is-open" : ""}`}>
-              <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" onClick={() => { setScaleOpen(false); setMenuOpen(false); }} className="mobile-scale-link">
-                <strong>Chat on WhatsApp <span>→</span></strong>
-                <small>Instant reply • Mon–Sat 10am–7pm IST</small>
-              </a>
-              <Link href="/contact" onClick={() => { setScaleOpen(false); setMenuOpen(false); }} className="mobile-scale-link mobile-scale-btn">
-                <strong>Get in touch — Fill form <span>→</span></strong>
-                <small>We reply within 24h</small>
-              </Link>
-              <div className="mobile-scale-email">Prefer email? <a href="mailto:growth.scalechefs@gmail.com">growth.scalechefs@gmail.com</a></div>
-            </div>
-          </div>
+          {/* Mobile-only Let's Scale inside drawer - links straight to contact form */}
+          <Link href="/contact" onClick={() => setMenuOpen(false)} className="mobile-scale-trigger mobile-scale-direct">
+            Let&apos;s scale <Arrow />
+          </Link>
         </nav>
 
         <div className="nav-right">
-          {/* Desktop Let's Scale dropdown - 2-col, links to /contact */}
-          <div
-            className={`nav-cta-wrap has-dropdown has-cta-dropdown ${scaleOpen ? "is-open" : ""}`}
-            ref={scaleRef}
-            onMouseEnter={handleScaleEnter}
-            onMouseLeave={handleScaleLeave}
-          >
-            <button
-              className="nav-cta nav-cta-trigger"
-              type="button"
-              aria-haspopup="true"
-              aria-expanded={scaleOpen}
-              aria-controls="scale-dropdown"
-              onClick={() => {
-                if (window.innerWidth <= 900) {
-                  handleScaleToggle();
-                } else {
-                  setScaleOpen((v) => !v);
-                }
-              }}
-              onFocus={handleScaleEnter}
-            >
-              Let&apos;s scale <Arrow />
-            </button>
-
-            <div
-              id="scale-dropdown"
-              className="dropdown dropdown-cta"
-              role="menu"
-              aria-label="Let's scale options"
-              onMouseEnter={handleScaleEnter}
-              onMouseLeave={handleScaleLeave}
-            >
-              <div className="scale-two-col">
-                <div className="scale-divider" aria-hidden="true" />
-                <a
-                  href={WHATSAPP_HREF}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  role="menuitem"
-                  className="scale-col scale-col-wa"
-                  onClick={() => setScaleOpen(false)}
-                >
-                  <div className="scale-col-inner">
-                    <strong>Chat on WhatsApp <span>→</span></strong>
-                    <small>Instant reply — avg. 2 min<br />Mon–Sat 10am–7pm IST</small>
-                  </div>
-                </a>
-                <Link
-                  href="/contact"
-                  role="menuitem"
-                  className="scale-col scale-col-contact"
-                  onClick={() => setScaleOpen(false)}
-                >
-                  <div className="scale-col-inner">
-                    <strong>Get in touch — Fill Form <span>→</span></strong>
-                    <small>Tell us about your project.<br />We reply within 24h.</small>
-                  </div>
-                  <div className="scale-image-wrap" aria-hidden="true">
-                    <img
-                      src="/contact-3d.png"
-                      alt=""
-                      width={170}
-                      height={170}
-                      className="scale-image"
-                      onError={(e) => {
-                        const t = e.target as HTMLImageElement;
-                        t.style.display = "none";
-                      }}
-                    />
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
+          {/* Desktop Let's Scale - links directly to the contact form */}
+          <Link href="/contact" className="nav-cta nav-cta-direct">
+            Let&apos;s scale <Arrow />
+          </Link>
 
           <button className="menu-button" type="button" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
             <span />
@@ -326,8 +210,8 @@ export default function Navbar() {
       </header>
 
       <div
-        className={`nav-overlay ${menuOpen ? "is-visible" : ""} ${servicesOpen || scaleOpen ? "is-dropdown-open" : ""} ${scaleOpen ? "is-scale-open" : ""}`}
-        onClick={() => { setMenuOpen(false); setServicesOpen(false); setScaleOpen(false); }}
+        className={`nav-overlay ${menuOpen ? "is-visible" : ""} ${servicesOpen ? "is-dropdown-open" : ""}`}
+        onClick={() => { setMenuOpen(false); setServicesOpen(false); }}
         aria-hidden="true"
       />
     </>

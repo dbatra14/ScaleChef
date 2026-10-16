@@ -125,38 +125,13 @@ img { display: block; max-width: 100%; }
 .nav-overlay.is-visible { opacity: 1; pointer-events: all; }
 .nav-overlay.is-dropdown-open { display: block !important; opacity: 1 !important; pointer-events: none !important; backdrop-filter: blur(6px) !important; -webkit-backdrop-filter: blur(6px) !important; background: rgba(255,255,255,0.08) !important; }
 
-/* Let's Scale CTA - EXACT 2-col sketch spec - same blur as Services panel */
+/* Let's Scale CTA - now a single direct link to /contact (dropdown removed) */
 .nav-cta-wrap { position: relative; display: flex; align-items: center; }
-.has-cta-dropdown::after { content: ""; position: absolute; left: -12px; right: -12px; top: 100%; height: 18px; }
-.nav-cta.nav-cta-trigger { width: 182px; height: 60px; padding: 0 20px; justify-content: space-between; gap: 12px; }
-/* Keep same soft blur as Services panel */
-.nav-overlay.is-scale-open { display: block !important; opacity: 1 !important; pointer-events: none !important; backdrop-filter: blur(6px) !important; -webkit-backdrop-filter: blur(6px) !important; background: rgba(255,255,255,0.08) !important; }
-/* Dropdown - compact floating 600-700 x 260-320, wider than tall, same glass as Services */
-.dropdown-cta { left: auto; right: 0; transform: translateY(-8px) scale(0.98); width: 640px; max-width: min(640px, calc(100vw - 24px)); height: 280px; padding: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 12px 32px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06); overflow: visible; border-radius: 20px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 340ms cubic-bezier(0.16,1,0.3,1), transform 360ms cubic-bezier(0.16,1,0.3,1), visibility 340ms; }
-.has-cta-dropdown:hover .dropdown-cta, .has-cta-dropdown.is-open .dropdown-cta, .has-cta-dropdown:focus-within .dropdown-cta { opacity: 1; visibility: visible; pointer-events: all; transform: translateY(0) scale(1); }
-.has-cta-dropdown:not(:hover):not(.is-open):not(:focus-within) .dropdown-cta { transition: opacity 220ms cubic-bezier(0.16,1,0.3,1), transform 240ms cubic-bezier(0.16,1,0.3,1), visibility 220ms; }
-.dropdown-cta::before { left: auto; right: 28px; background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-left: 1px solid rgba(255,255,255,0.8); border-top: 1px solid rgba(255,255,255,0.8); }
-/* TWO equal vertical sections - 1fr 1fr */
-.scale-two-col { display: grid; grid-template-columns: 1fr 1fr; height: 100%; position: relative; width: 100%; }
-.scale-divider { position: absolute; left: 50%; top: 14%; bottom: 14%; width: 1px; background: rgba(29,29,31,0.08); transform: translateX(-50%); pointer-events: none; }
-.scale-col { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 28px 20px; position: relative; text-decoration: none; border: 0; background: transparent; cursor: pointer; width: 100%; height: 100%; transition: background 0.15s ease; }
-.scale-col:hover { background: var(--soft); }
-.scale-col-wa:hover { border-radius: 20px 0 0 20px; }
-.scale-col-contact:hover { border-radius: 0 20px 20px 0; }
-.scale-col:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
-.scale-col-inner { display: flex; flex-direction: column; align-items: center; gap: 8px; max-width: 240px; }
-.scale-col-inner strong { font-family: "Montserrat", Arial, sans-serif; font-size: 15px; font-weight: 600; color: #1D1D1F; display: flex; align-items: center; gap: 6px; line-height: 1.2; justify-content: center; }
-.scale-col:hover .scale-col-inner strong { }
-.scale-col-inner strong span { font-size: 11px; opacity: 0.35; flex-shrink: 0; }
-.scale-col-inner small { font-family: "Montserrat", Arial, sans-serif; font-size: 11.5px; color: #6B6B72; line-height: 1.4; text-align: center; }
-/* SINGLE 3D image - absolutely positioned at bottom-right of CONTACT US half, does NOT affect grid */
-.scale-image-wrap { position: absolute; right: -30px; bottom: -45px; width: 170px; height: 170px; pointer-events: none; z-index: 3; display: flex; align-items: center; justify-content: center; overflow: visible; }
-.scale-image { width: 170px; height: 170px; object-fit: contain; display: block; filter: drop-shadow(0 16px 32px rgba(0,0,0,0.18)); transform: translateY(20px) scale(0.85); opacity: 0; transition: opacity 340ms cubic-bezier(0.16,1,0.3,1) 40ms, transform 380ms cubic-bezier(0.16,1,0.3,1) 40ms; will-change: transform, opacity; }
-.has-cta-dropdown:hover .scale-image, .has-cta-dropdown.is-open .scale-image, .has-cta-dropdown:focus-within .scale-image { opacity: 1; transform: translateY(0) scale(1); animation: scale-float 3.6s ease-in-out 520ms infinite; }
-@keyframes scale-float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-4px) scale(1); } }
-.has-cta-dropdown:not(:hover):not(.is-open):not(:focus-within) .scale-image { transition: opacity 200ms cubic-bezier(0.16,1,0.3,1), transform 220ms cubic-bezier(0.16,1,0.3,1); transform: translateY(20px) scale(0.85); opacity: 0; animation: none; }
+.nav-cta.nav-cta-direct { width: 182px; height: 60px; padding: 0 20px; justify-content: space-between; gap: 12px; text-decoration: none; }
+/* Dropdown for Let's Scale has been removed - CTA links straight to /contact */
 /* Mobile Let's Scale inside drawer - hidden on desktop */
 .mobile-cta-item { display: none; }
+.mobile-scale-direct { display: none; }
 .mobile-scale-options { display: none; flex-direction: column; gap: 0; margin: 2px 0 8px 14px; border-left: 2px solid var(--pale); padding-left: 12px; }
 .mobile-scale-options.is-open { display: flex; }
 .mobile-scale-link { display: flex; flex-direction: column; gap: 1px; padding: 10px 8px; border-radius: 8px; text-align: left; background: transparent; border: 0; cursor: pointer; font-family: "Montserrat", Arial, sans-serif; }
@@ -169,7 +144,7 @@ img { display: block; max-width: 100%; }
 .mobile-scale-email a { color: var(--ink); font-weight: 700; text-decoration: underline; }
 .nav-cta, .primary-button { display: inline-flex; align-items: center; justify-content: center; gap: 28px; background: var(--ink); color: var(--white); padding: 14px 20px; transition: transform .2s ease, background .2s ease; white-space: nowrap; border-radius: 0; font-family: "Montserrat", Arial, sans-serif; font-size: 13px; font-weight: 600; }
 .nav-cta:hover, .primary-button:hover { background: rgba(29,29,31,0.82); transform: translateY(-2px); }
-.nav-cta:focus-visible, .primary-button:focus-visible, .text-link:focus-visible, .menu-button:focus-visible, .whatsapp-float:focus-visible, .nav-item > a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.nav-cta:focus-visible, .primary-button:focus-visible, .text-link:focus-visible, .menu-button:focus-visible, .wa-fab:focus-visible, .nav-item > a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .menu-button { display: none; background: none; border: 0; width: 42px; height: 42px; padding: 10px; cursor: pointer; border-radius: 10px; position: relative; z-index: 41; }
 .menu-button span { width: 22px; height: 2px; background: var(--ink); display: block; margin: 6px auto; transition: transform .2s ease, opacity .2s ease; border-radius: 2px; }
 .menu-button[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
@@ -361,61 +336,42 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Prata", Georgia, serif
 .about-stats span { font-size: 12px; color: #6b6b72; }
 .contact-section .contact-cta { margin-top: 8px; }
 .services-section { background: linear-gradient(180deg, var(--pale) 0%, var(--white) 100%); }
-.portfolio-section { background: var(--white); }
+.portfolio-section { background: var(--pale); }
 .about-section { background: var(--soft); }
 .contact-section { background: var(--white); }
 
-.whatsapp-float {
-  position: fixed;
-  right: max(16px, env(safe-area-inset-right, 0px));
-  bottom: max(16px, env(safe-area-inset-bottom, 0px));
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #19B86A;
-  display: grid;
-  place-items: center;
-  box-shadow: 0 8px 24px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
-  z-index: 50;
-  transition: transform .2s ease, box-shadow .2s ease;
-  animation: whatsapp-pulse 2.4s infinite;
-}
-.whatsapp-float:hover {
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 12px 32px rgba(0,0,0,.22), 0 4px 12px rgba(0,0,0,.14);
-  animation: none;
-}
-.whatsapp-float:active { transform: scale(.98); }
-.whatsapp-tooltip {
-  position: absolute;
-  right: 70px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--ink);
-  color: var(--white);
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 8px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s ease, transform .2s ease;
-}
-.whatsapp-tooltip::after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 6px solid transparent;
-  border-left-color: var(--ink);
-}
-.whatsapp-float:hover .whatsapp-tooltip {
-  opacity: 1;
-  transform: translateY(-50%) translateX(0);
-}
+/* Floating WhatsApp button + popup (replaces the old dead .whatsapp-float rules) */
+.wa-fab-wrap { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px)); z-index: 60; display: flex; align-items: flex-end; }
+.wa-fab { position: relative; width: 60px; height: 60px; border-radius: 50%; border: 0; background: #19B86A; color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12); transition: transform .2s ease, box-shadow .2s ease; animation: whatsapp-pulse 2.4s infinite; }
+.wa-fab svg { width: 30px; height: 30px; display: block; }
+.wa-fab:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 12px 32px rgba(0,0,0,.22), 0 4px 12px rgba(0,0,0,.14); animation: none; }
+.wa-fab:active { transform: scale(.98); }
+.wa-fab-wrap.is-open .wa-fab { animation: none; transform: scale(1); background: #128C4F; }
+.wa-fab-ping { position: absolute; top: 2px; right: 2px; width: 12px; height: 12px; border-radius: 50%; background: #25D366; border: 2px solid #fff; }
+.wa-fab:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+/* Popup panel */
+.wa-fab-popup { position: absolute; right: 0; bottom: calc(100% + 14px); width: 316px; max-width: calc(100vw - 32px); background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.8); border-radius: 20px; box-shadow: 0 18px 44px rgba(0,0,0,.16), 0 3px 10px rgba(0,0,0,.07); padding: 18px; animation: waPopIn 260ms cubic-bezier(0.16,1,0.3,1); }
+.wa-fab-popup::after { content: ""; position: absolute; right: 22px; bottom: -7px; width: 14px; height: 14px; background: rgba(255,255,255,0.97); transform: rotate(45deg); border-right: 1px solid rgba(255,255,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.8); }
+@keyframes waPopIn { from { opacity: 0; transform: translateY(10px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.wa-fab-close { position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border-radius: 50%; border: 0; background: var(--soft); color: var(--ink); font-size: 18px; line-height: 1; cursor: pointer; display: grid; place-items: center; transition: background .15s ease; }
+.wa-fab-close:hover { background: var(--soft-highlight); }
+.wa-fab-head { display: flex; align-items: center; gap: 12px; padding-right: 32px; }
+.wa-fab-avatar { width: 42px; height: 42px; border-radius: 50%; background: #19B86A; color: #fff; display: grid; place-items: center; flex-shrink: 0; }
+.wa-fab-avatar svg { width: 24px; height: 24px; }
+.wa-fab-head-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.wa-fab-head-text strong { font-family: "Montserrat", Arial, sans-serif; font-size: 14px; font-weight: 600; color: #1D1D1F; line-height: 1.2; }
+.wa-fab-status { display: inline-flex; align-items: center; gap: 5px; font-family: "Montserrat", Arial, sans-serif; font-size: 11px; color: #6B6B72; }
+.wa-fab-status i { width: 6px; height: 6px; border-radius: 50%; background: #19B86A; display: inline-block; }
+.wa-fab-body { font-family: "Montserrat", Arial, sans-serif; font-size: 12.5px; color: #6B6B72; line-height: 1.5; margin: 14px 0 12px; }
+.wa-fab-number { background: var(--soft); border-radius: 12px; padding: 10px 12px; margin-bottom: 10px; display: flex; flex-direction: column; gap: 2px; }
+.wa-fab-number small { font-family: "Montserrat", Arial, sans-serif; font-size: 10.5px; color: #6B6B72; text-transform: uppercase; letter-spacing: .6px; }
+.wa-fab-number a { font-family: "Montserrat", Arial, sans-serif; font-size: 14.5px; font-weight: 600; color: #1D1D1F; text-decoration: none; letter-spacing: .2px; }
+.wa-fab-number a:hover { text-decoration: underline; }
+.wa-fab-launch { display: inline-flex; align-items: center; justify-content: center; gap: 9px; width: 100%; padding: 12px 16px; border-radius: 12px; background: #19B86A; color: #fff; text-decoration: none; font-family: "Montserrat", Arial, sans-serif; font-size: 13px; font-weight: 600; transition: background .2s ease, transform .2s ease; }
+.wa-fab-launch svg { width: 19px; height: 19px; display: block; }
+.wa-fab-launch:hover { background: #128C4F; transform: translateY(-1px); }
+.wa-fab-launch:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 @keyframes whatsapp-pulse {
   0% { box-shadow: 0 8px 24px rgba(0,0,0,.18), 0 0 0 0 rgba(25,184,106,.45); }
   60% { box-shadow: 0 8px 24px rgba(0,0,0,.18), 0 0 0 14px rgba(25,184,106,0); }
@@ -535,6 +491,8 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Prata", Georgia, serif
   .nav-right .nav-cta, .nav-right .nav-cta-wrap { display: none; }
   .mobile-cta-item { display: flex !important; flex-direction: column; align-items: stretch; }
   .mobile-cta-item > a { padding: 14px 8px; font-size: 15px; border-radius: 10px; }
+  .mobile-scale-direct { display: inline-flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; margin-top: 8px; padding: 14px 16px; font-size: 14px; font-weight: 600; color: var(--ink); background: var(--soft); border-radius: 12px; text-decoration: none; }
+  .mobile-scale-direct:hover { background: var(--soft-highlight); }
   .section { padding: 36px 16px; }
   .service-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -543,7 +501,7 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Prata", Georgia, serif
   h1 { font-size: clamp(38px, 10vw, 54px); margin-top: 18px; }
   .hero-description { font-size: 15px; }
   .scale-note { right: 3%; bottom: 14%; padding: 12px 14px; }
-  .whatsapp-tooltip { display: none; }
+  .wa-fab-popup { width: 288px; }
 }
 
 @media (max-width: 640px) {
@@ -566,8 +524,8 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Prata", Georgia, serif
   .portfolio-cta { font-size: 12px; margin-top: 14px; }
   .scale-note { right: 2%; bottom: 13%; padding: 10px 12px; max-width: 44%; }
   .scale-note strong { font-size: 18px; }
-  .whatsapp-float { width: 54px; height: 54px; right: 14px; bottom: 14px; }
-  .whatsapp-float svg { width: 24px; height: 24px; }
+  .wa-fab { width: 54px; height: 54px; }
+  .wa-fab svg { width: 27px; height: 27px; }
 }
 
 @media (max-width: 380px) {
@@ -628,6 +586,7 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Prata", Georgia, serif
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .whatsapp-float { animation: none; }
+  .wa-fab { animation: none; }
+  .wa-fab-popup { animation: none; }
   * { transition-duration: 0.01ms !important; }
 }

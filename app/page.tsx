@@ -3,6 +3,7 @@ import PortfolioTiles from "@/components/portfolio-tiles";
 import { StaggerTestimonials } from "@/components/ui/stagger-testimonials";
 import ContactWithGlobe from "@/components/ui/contact-with-globe";
 import Services01 from "@/components/ui/services-01";
+import AboutStrip from "@/components/ui/about-strip";
 import WaveLettering from "@/components/ui/wave-lettering";
 import { PROJECTS } from "@/lib/projects";
 
@@ -49,6 +50,8 @@ export default function Home() {
         </div>
 
       </section>
+
+      <AboutStrip />
 
       <Services01 />
 
