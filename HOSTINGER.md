@@ -67,7 +67,7 @@ Set these in hPanel → Node.js app → **Environment variables**
 | `RESEND_API_KEY` | For the contact form | Delivers enquiries through Resend. Without it the site renders fine but `/api/contact` answers `503 "Email delivery is not configured yet."` |
 | `CONTACT_TO_EMAIL` | No | Where enquiries go. Defaults to `growth.scalechefs@gmail.com`. |
 | `CONTACT_FROM_EMAIL` | Recommended | Verified sender, e.g. `hello@yourdomain.com`. The default `onboarding@resend.dev` sandbox only delivers to the Resend account owner. |
-| `NEXT_PUBLIC_SITE_URL` | Recommended | The live URL, e.g. `https://yourdomain.com`. Used to build absolute Open Graph / Twitter card image URLs. |
+| `NEXT_PUBLIC_SITE_URL` | Recommended | Absolute public URL, e.g. `https://scalechefs.com`. Used to build Open Graph / Twitter card image URLs. Defaults to `https://scalechefs.com`, so only set it if the domain differs. |
 | `NEXT_PUBLIC_BASE_PATH` | Only if hosted under a subdirectory | e.g. `/scalechefs/`. Leave unset for a normal root-domain deployment. |
 
 > ⚠️ `NEXT_PUBLIC_*` variables are baked in at **build** time. If you change
