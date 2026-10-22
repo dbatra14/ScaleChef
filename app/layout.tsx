@@ -4,6 +4,9 @@ import Footer from "@/components/footer";
 import WhatsAppFab from "@/components/whatsapp-fab";
 
 export const metadata: Metadata = {
+  // Resolve relative OG/Twitter image paths against the live domain.
+  // Override with NEXT_PUBLIC_SITE_URL on the host if this ever changes.
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://scalechefs.com"),
   title: "ScaleChefs — Technology × Marketing × AI",
   description: "ScaleChefs helps ambitious businesses scale through technology, marketing and practical AI.",
   icons: {
