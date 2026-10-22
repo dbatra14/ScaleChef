@@ -342,11 +342,16 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Prata", Georgia, serif
 
 /* Floating WhatsApp button + popup (replaces the old dead .whatsapp-float rules) */
 .wa-fab-wrap { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px)); z-index: 60; display: flex; align-items: flex-end; }
-.wa-fab { position: relative; width: 60px; height: 60px; border-radius: 50%; border: 0; background: #19B86A; color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12); transition: transform .2s ease, box-shadow .2s ease; animation: whatsapp-pulse 2.4s infinite; }
+.wa-fab { position: relative; width: 60px; height: 60px; border-radius: 50%; border: 0; background: #19B86A; color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12); transition: transform .2s ease, box-shadow .2s ease; }
+/* Pulse ring on its own composited layer (opacity) instead of animated
+   box-shadow, which repaints a large area every frame. */
+.wa-fab::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: 0 0 0 0 rgba(25,184,106,.5); opacity: 0; pointer-events: none; animation: whatsapp-pulse 2.4s cubic-bezier(0.25,0.5,0.35,1) infinite; will-change: opacity, transform; }
 .wa-fab svg { width: 30px; height: 30px; display: block; }
-.wa-fab:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 12px 32px rgba(0,0,0,.22), 0 4px 12px rgba(0,0,0,.14); animation: none; }
+.wa-fab:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 12px 32px rgba(0,0,0,.22), 0 4px 12px rgba(0,0,0,.14); }
+.wa-fab:hover::after, .wa-fab:active::after { animation: none; opacity: 0; }
 .wa-fab:active { transform: scale(.98); }
-.wa-fab-wrap.is-open .wa-fab { animation: none; transform: scale(1); background: #128C4F; }
+.wa-fab-wrap.is-open .wa-fab { transform: scale(1); background: #128C4F; }
+.wa-fab-wrap.is-open .wa-fab::after { animation: none; opacity: 0; }
 .wa-fab-ping { position: absolute; top: 2px; right: 2px; width: 12px; height: 12px; border-radius: 50%; background: #25D366; border: 2px solid #fff; }
 .wa-fab:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 
@@ -373,9 +378,9 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Prata", Georgia, serif
 .wa-fab-launch:hover { background: #128C4F; transform: translateY(-1px); }
 .wa-fab-launch:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 @keyframes whatsapp-pulse {
-  0% { box-shadow: 0 8px 24px rgba(0,0,0,.18), 0 0 0 0 rgba(25,184,106,.45); }
-  60% { box-shadow: 0 8px 24px rgba(0,0,0,.18), 0 0 0 14px rgba(25,184,106,0); }
-  100% { box-shadow: 0 8px 24px rgba(0,0,0,.18), 0 0 0 0 rgba(25,184,106,0); }
+  0% { opacity: 0.5; transform: scale(1); }
+  60% { opacity: 0; transform: scale(1.42); }
+  100% { opacity: 0; transform: scale(1.42); }
 }
 
 /* Contact Modal */
@@ -471,16 +476,22 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Prata", Georgia, serif
   .menu-button { display: block; }
   /* Discord hamburger pattern - slide from right */
   .nav-links {
-    position: fixed; display: flex; top: 0; right: -100%; left: auto; width: 84%; max-width: 340px; height: 100dvh;
+    position: fixed; display: flex; top: 0; right: 0; left: auto; width: 84%; max-width: 340px; height: 100dvh;
     padding: 80px 20px 24px; background: var(--white);
     border-left: 1px solid var(--line); flex-direction: column;
     align-items: stretch; gap: 4px;
     box-shadow: -20px 0 40px rgba(0,0,0,0.12);
     max-height: 100dvh; overflow-y: auto;
-    transition: right 0.35s cubic-bezier(0.16,1,0.3,1);
+    /* Slide on the GPU with a transform instead of animating `right`,
+       which forces layout on every frame. `visibility` keeps the closed
+       panel out of the tab order and out of screen readers. */
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), visibility 0.35s;
+    will-change: transform;
     z-index: 40;
   }
-  .nav-links.is-open { right: 0; }
+  .nav-links.is-open { transform: translateX(0); visibility: visible; }
   .nav-links > a, .nav-item > a { padding: 14px 8px; font-size: 15px; border-radius: 10px; }
   .nav-links > a:hover, .nav-item > a:hover { background: var(--soft); }
   .nav-item { flex-direction: column; align-items: stretch; }
@@ -586,7 +597,16 @@ h1 { margin: clamp(24px, 4vh, 52px) 0 20px; font-family: "Prata", Georgia, serif
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .wa-fab { animation: none; }
-  .wa-fab-popup { animation: none; }
-  * { transition-duration: 0.01ms !important; }
+  /* Every animation and transition ends on its final frame instead of
+     looping. Covers the floating hero image, the eyebrow dot, the pulse
+     ring and the modal/pop-in entrance animations in one rule. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .wa-fab::after { animation: none; opacity: 0; }
 }

@@ -100,3 +100,26 @@ contact form should send when `RESEND_API_KEY` is set.
 | Contact form returns `503` | `RESEND_API_KEY` is not set on the server. |
 | Contact form returns `502` | Resend rejected the send — usually `CONTACT_FROM_EMAIL` is not a domain verified in Resend. |
 | `npm ci` complains the lockfile is out of sync | Run `npm install` locally and commit the refreshed `package-lock.json`. |
+
+---
+
+## 7. Known remaining npm-audit advisories (accepted)
+
+After the October 2026 security round (29 → 7 findings, all criticals and
+high-severity production issues resolved), exactly one advisory family
+remains. It is **accepted and intentional**:
+
+| Finding | Why it stays |
+| --- | --- |
+| `braces` (all versions, high) — GitHub advisory GHSA-vfj7-8cjw-p6xm flags **every version ever published**, so no fixed release exists to install | The whole affected chain is dev-only tooling: `@next/eslint-plugin-next` (used by `npm run lint`) and `vinext`'s vite plugins (used by `build:cloudflare`). None of it is loaded by the Next.js server on Hostinger, and the bug requires passing hostile glob patterns to `braces` at runtime, which neither tool does. |
+
+Running `npm audit fix --force` is **not** the fix — it would downgrade
+`@next/eslint-plugin-next` from 16.x to 14.2.35 (breaking the lint config)
+without producing a fixed version of `braces`. Re-check the advisory after
+future `npm update` runs; once upstream publishes a patched `braces`, a plain
+bump clears it.
+
+Everything production-facing is clean: `next`, `react`, `react-dom`,
+`sharp`, `postcss`, `undici`, `ws`, `brace-expansion`, `browserslist`,
+`fast-uri`, `js-yaml`, `fflate`, `@babel/core`, `image-size` and
+`baseline-browser-mapping` all resolve to patched versions.
